@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateInvesteProjTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateInvesteProjLabel_funding}" for="funding" />
+                    <h:inputText id="funding" value="#{investeProjController.selected.funding}" title="#{bundle.CreateInvesteProjTitle_funding}" required="true" requiredMessage="#{bundle.CreateInvesteProjRequiredMessage_funding}"/>
+                    <h:outputLabel value="#{bundle.CreateInvesteProjLabel_project}" for="project" />
+                    <h:selectOneMenu id="project" value="#{investeProjController.selected.project}" title="#{bundle.CreateInvesteProjTitle_project}" required="true" requiredMessage="#{bundle.CreateInvesteProjRequiredMessage_project}">
+                        <f:selectItems value="#{projectController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateInvesteProjLabel_user}" for="user" />
+                    <h:selectOneMenu id="user" value="#{investeProjController.selected.user}" title="#{bundle.CreateInvesteProjTitle_user}" required="true" requiredMessage="#{bundle.CreateInvesteProjRequiredMessage_user}">
+                        <f:selectItems value="#{userController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{investeProjController.create}" value="#{bundle.CreateInvesteProjSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{investeProjController.prepareList}" value="#{bundle.CreateInvesteProjShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateInvesteProjIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
