@@ -1,3 +1,13 @@
+
+.one {
+    width: 20px;
+    margin: 0 auto;
+    line-height: 50px;
+    font-size: 28px;
+    color: white;
+}
+
+
 root { 
     display: block;
 }
@@ -5,7 +15,6 @@ root {
 body {
     font-family: Arial, Helvetica, sans-serif;
     color: #3a4f54;
-    background-color: #dfecf1;
     font-size: small;
 }
 
