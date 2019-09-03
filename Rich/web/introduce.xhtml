@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <iframe  MARGINWIDTH="0" MARGINHEIGHT="0" HSPACE="0" VSPACE="0" FRAMEBORDER="0" SCROLLING="no" src="head.xhtml" width="100%"  height="auto"/>
+           
+       
+        <style>
+            /*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2019-9-2, 18:29:26
+    Author     : lenovo
+*/
+
+ * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul{
+            list-style:none;
+        }
+        #options {
+            width: 1230px;
+            height:88px;
+            display:flex;
+            flex-direction:row;
+            align-self: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #options li{
+            flex:1;
+            background-image: url(resources/images/sxy/button_nor.png);
+            text-align: center;
+            line-height:88px;
+            vertical-align:middle;
+        }
+        #options li.active{
+            color:white;
+            background-image: url(resources/images/sxy/button_act.png)
+        }
+        #options li:hover{
+            color:black;
+            background-image: url(resources/images/sxy/button_act.png)
+        }
+        
+        
+        #text{
+            width: 1230px;
+            height:525px;
+            display:flex;
+            flex-direction:row;
+            margin-top: 50px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #text ul.guide1{
+            width:260px;
+            height:525px;
+            float:left;
+            background-image: url(resources/images/sxy/guide1.jpg);
+            margin-left: 2px;
+        }
+        #text ul.guide2{
+            width: 970px;
+            height:525px;
+            background-image: url(resources/images/sxy/guide2.jpg);
+        }
+        #text li{
+            text-align:center;
+            font-size:100px;
+            line-height:350px;
+            display:none;
+        }
+        #text li.active1{
+            display:block;
+        }
+        
+        body.back{
+            background-image: url(resources/images/sxy/background.png)
+        }
+        .title{
+            
+            vertical-align: middle;
+
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        
+        </style>
+
+    </h:head>
+    <h:body class="back">
+        <div class="title" align="center">
+           <img src="resources/images/sxy/title.png"  />
+        </div>
+        <div>
+            <ul id="options">
+                <li class= "active">第一项</li>
+                <li>第二项</li>
+                <li>第三项</li>
+                <li>第四项</li>
+            </ul>
+            <ul height="100px">
+                
+            </ul>
+            <ul id="text">
+                <ul class="guide1">
+                    左侧
+                </ul>
+                <ul class="guide2" >
+                    <li class = "active1">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                </ul>
+            </ul>
+            
+            
+        </div>
+        
+            
+        
+
+   
+
+    <script src="./resources/js/tabView.js"></script>
+    </h:body>
+</html>
+
