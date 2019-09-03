@@ -1,0 +1,16 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 3, 2019, 10:12:22 AM
+    Author     : zhangyihua
+*/
+.h30, .h28, .h26, .h24, .h22, .h20, .h18,  .h16{ line-height: 1.2;} 
+.h30{ font-size: 30px;}
+
+.resources1 .title {padding:240px 0 55px;text-align:center;}
+.resources1 .title .t_head {padding:0 0 50px;background:url(resources/image/ziyuan/arr13.png) no-repeat bottom center;margin-bottom:20px;}
+.resources1 .t_head .h30:before, .resources1 .t_head .h30:after {background-image: url(resources/image/ziyuan/arr7.png);}
+.resources1 {background:url(resources/image/ziyuan/resources1.jpg);position:absolute;left:0;top:0;height:850px;width:100%;}
