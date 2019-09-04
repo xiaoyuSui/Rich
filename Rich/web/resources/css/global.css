@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+.h30, .h28, .h26, .h24, .h22, .h20, .h18,  .h16{ line-height: 1.2;} 
+.h30{ font-size: 30px;}
+.h28{ font-size: 28px;}
+.h26{ font-size: 26px;}
+.h24{ font-size: 24px;}
+.h22{ font-size: 22px;}
+.h20{ font-size: 20px;}
+.h18{ font-size: 18px;}
+.h16{ font-size: 16px;}
+
+/* css reset */
+html,body, h1, h2, h3, h4, h5, h6, div, ol, ul, li, dl, dt, dd, table, caption, tr, th, td, span, p, a, b, u, i, em, img, iframe, fieldset, form, label, legend, input, button, select, textarea { margin: 0; padding: 0;}
+body { font: 14px/1.5 fzqkbysjw, Arial, Tahoma, Helvetica, sans-serif; color: #333; background-color: #fff; margin: auto;overflow-x:hidden;-ms-overflow-x:hidden;}
+input, button, textarea, select { font: inherit; outline: 0; border: 0; background: none; color: inherit;}
+input:focus, textarea:focus { color: inherit;}
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0;}
+ol, ul, li { list-style: none;}
+input, select { -webkit-appearance: none; -moz-appearance: none; appearance: none;}
+textarea { overflow: auto; resize: none;}
+table { border-collapse: collapse; border: 0;}
+img { border: 0; outline: 0; vertical-align: middle;}
+a { text-decoration: none; color: inherit;}
+a:focus { outline: 0;}
+svg:not(:root){ overflow: hidden;}
+input[type=date]{ background-color:transparent; border: 0; filter: alpha(opacity=0);}
+
+
+.x-container{ background: url(../images/png14.png); }
+.clear:after, .x-wrap:after{ content: ''; display: table; clear: both;}
