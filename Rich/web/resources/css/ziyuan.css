@@ -7,7 +7,7 @@ and open the template in the editor.
     Created on : Sep 3, 2019, 10:12:22 AM
     Author     : zhangyihua
 */
-.h30, .h28, .h26, .h24, .h22, .h20, .h18,  .h16{ line-height: 1.2;} 
+/*.h30, .h28, .h26, .h24, .h22, .h20, .h18,  .h16{ line-height: 1.2;} 
 .h30{ font-size: 30px;}
 .h30:before{ content: ''; display: inline-block; width: 22px; height: 44px; vertical-align: top; background: url(../images/ziyuan/arr7.png) no-repeat;}
 .h30:after{ content: ''; display: inline-block; width: 22px; height: 44px; vertical-align: top; background: url(../images/ziyuan/arr8.png) no-repeat;}
@@ -21,6 +21,303 @@ and open the template in the editor.
 .resources1 .list .item a {display:block;width:100%;height:100%;}
 .resources1 .list .item.act {width:50%;}
 .resources1 .list .item .h18 {position:absolute;left:30px;top:60px;width:22px;text-align:center;color:#f0e5d8;bottom:60px;}
+*/
 /*
 .t_head .h30:before, .t_head .h30:after{ content: ''; display: inline-block; width: 22px; height: 44px; vertical-align: top; background: url(../images/ziyuan/png7.png) no-repeat;}
 */
+.resources2 {
+    overflow: hidden;
+    padding-bottom: 120px;
+}
+html, body, h1, h2, h3, h4, h5, h6, div, ol, ul, li, dl, dt, dd, table, caption, tr, th, td, span, p, a, b, u, i, em, img, iframe, fieldset, form, label, legend, input, button, select, textarea {
+    margin: 0;
+    padding: 0;
+        padding-bottom: 0px;
+}
+.resources1 .x-wrap {
+    position: relative;
+    z-index: 1;
+}
+.x-wrap {
+    width: 1230px;
+}
+.x-wrap {
+    position: relative;
+    width: 1230px;
+    height: 100%;
+    margin: auto;
+}
+.resources2 .cont {
+    margin-top: 157px;
+    position: relative;
+    height: 503px;
+}
+.resources2 .cont .l {
+    width: 918px;
+    height: 100%;
+    position: absolute;
+    left: -165px;
+    bottom: 0px;
+    background: url(../images/ziyuan/resources2.png) no-repeat center;
+}
+.resources2 .cont .l .img {
+    width: 469px;
+    height: 469px;
+    border-radius: 6px;
+    overflow: hidden;
+    position: absolute;
+    left: 165px;
+    bottom: 34px;
+}
+.img {
+    position: relative;
+}
+.resources2 .cont .l .img img {
+    width: 100%;
+    height: auto;
+}
+img {
+    border: 0;
+    outline: 0;
+    vertical-align: middle;
+}
+.resources2 .cont .r {
+    width: 500px;
+    float: right;
+    position: relative;
+}
+.resources2 .cont .r .title {
+    overflow: hidden;
+    color: #333;
+    margin-bottom: 0px;
+}
+.resources2 .cont .r .title .h30 {
+    position: relative;
+    float: left;
+    padding: 0 32px;
+}
+.h30 {
+    font-size: 30px;
+}
+.h30, .h28, .h26, .h24, .h22, .h20, .h18, .h16 {
+    line-height: 1.2;
+}
+.resources2 .cont .r .title .h30::before {
+    left: 0;
+    background-position: left;
+}
+.resources2 .cont .r .title .h30::before, .resources2 .cont .r .title .h30::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 22px;
+    background: url(../images/ziyuan/png7.png) no-repeat;
+        background-position-x: 0%;
+        background-position-y: 0%;
+}
+.resources2 .cont .r .title .h30::after {
+    right: 0;
+    background-position: right;
+}
+.resources2 .cont .r .list {
+    font-family: 微软雅黑;
+}
+.resources2 .cont .r .list .item {
+    padding: 28px 0;
+    color: #333;
+    border-bottom: 1px dashed #b5b5b5;
+}
+a {
+    color: inherit;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.resources2 .cont .r .list .item .h16 {
+    padding-bottom: 12px;
+}
+.h16 {
+    font-size: 16px;
+}
+.clear::after, .x-wrap::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+.x-header, .x-footer, .x-container {
+    min-width: 1250px;
+}
+.x-container {
+    background: url(../images/ziyuan/png14.png);
+}
+.x-header, .x-footer, .x-container {
+    position: relative;
+    width: 100%;
+    min-width: 1250px;
+    margin: auto;
+    z-index: 1;
+}
+.resources1 {
+    position: relative;
+}
+.resources1 .x-wrap {
+    position: relative;
+    z-index: 1;
+}
+.resources1 .title {
+    padding: 240px 0 55px;
+    text-align: center;
+}
+.x-wrap {
+    width: 1230px;
+}
+.x-wrap {
+    position: relative;
+    width: 1230px;
+    height: 100%;
+    margin: auto;
+}
+.resources1 .title .t_head {
+    padding: 0 0 50px;
+    background: url(../images/ziyuan/arr13.png) no-repeat bottom center;
+    margin-bottom: 20px;
+}
+.t_head {
+    position: relative;
+    padding: 36px 0 40px;
+    font-family: 'fzqkbysjw';
+    text-align: center;
+}
+.t_head .h30 {
+    line-height: 44px;
+}
+.h30 {
+    font-size: 30px;
+}
+.h30, .h28, .h26, .h24, .h22, .h20, .h18, .h16 {
+    line-height: 1.2;
+}
+
+/*.resources1 .t_head .h30::before, .resources1 .t_head .h30::after {
+    background-image: url(../images/ziyuan/arr7.png);
+}*/
+
+.resources1 .t_head .h30::before{
+    background-image: url(../images/ziyuan/arr7.png);
+}
+.resources1 .t_head .h30::after {
+    background-image: url(../images/ziyuan/arr8.png);
+}
+.t_head .h30::before {
+    background-position: left;
+    margin-right: 18px;
+}
+.t_head .h30::before, .t_head .h30::after {
+    content: '';
+    display: inline-block;
+    width: 22px;
+    height: 44px;
+    vertical-align: top;
+    background: url(../images/ziyuan/png77.png) no-repeat;
+        background-position-x: 0%;
+        background-position-y: 0%;
+        background-image: url("../images/ziyuan/png77.png");
+}
+/*
+.t_head .h30::before, .t_head .h30::after {
+    content: '';
+    display: inline-block;
+    width: 22px;
+    height: 44px;
+    vertical-align: top;
+    background: url(../images/ziyuan/png7.png) no-repeat;
+        background-position-x: 0%;
+        background-position-y: 0%;
+        background-image: url("../images/ziyuan/png7.png");
+}*/
+.t_head .h30::after {
+    background-position: right;
+    margin-left: 18px;
+}
+.resources1 .list {
+    height: 616px;
+    overflow: hidden;
+}
+.resources1 .list .item a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+a {
+    color: inherit;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.clear::after, .x-wrap::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+.t_head .h30 {
+    line-height: 44px;
+}
+.h30 {
+    font-size: 30px;
+}
+.h30, .h28, .h26, .h24, .h22, .h20, .h18, .h16 {
+    line-height: 1.2;
+}
+.resources1 .t_head .h30::before ,resources1 .t_head .h30::after {
+    background-image: url(../images/ziyuan/arr7.png);
+}
+/*.resources1 .t_head .h30::after {
+    background-image: url(../images/ziyuan/arr8.png);
+}*/
+.resources1 .bgi {
+    background: url(../images/ziyuan/resources1.jpg);
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 850px;
+    width: 100%;
+}
+.resources1 .list .item.act {
+    width: 50%;
+}
+.resources1 .list .item {
+    float: left;
+    background-repeat: no-repeat;
+    background-position:right;
+    background-size: cover;
+    height: 100%;
+    width: 16.66%;
+    position: relative;
+}
+.resources1 .list .item a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+a {
+    color: inherit;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.resources1 .list .item .h18 {
+    position: absolute;
+    left: 30px;
+    top: 60px;
+    width: 22px;
+    text-align: center;
+    color: #f0e5d8;
+    bottom: 60px;
+}
+.h18 {
+    font-size: 18px;
+}
