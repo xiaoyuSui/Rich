@@ -75,7 +75,7 @@ a {
 	border-bottom: 2px solid #0f88eb;
 }
 .switch_nav .switch_btn{
-	color: #878787;
+	color: #fff;
 
 }
 
@@ -126,3 +126,21 @@ a {
 	background-color: #0f88eb;
 	border-radius: 3px;
 }
+
+.get_btn{
+	width: 30%;
+	box-shadow: none;
+	border:0;
+	line-height: 45px;
+	font-size: 15px;
+	display: block;
+        margin-left:20px;
+	color: #fff;
+	background-color: #0f88eb;
+	border-radius: 3px;
+}
+
+/*#mobile{
+            float:left;
+            min-width:85%;
+}*/
