@@ -4,6 +4,8 @@ import Entity.util.JsfUtil;
 import Entity.util.PaginationHelper;
 
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -26,6 +28,7 @@ public class UserController implements Serializable {
     private Entity.UserFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
+    
 
     public UserController() {
     }

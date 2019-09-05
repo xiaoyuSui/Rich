@@ -4,20 +4,54 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-
+<!--
     <h:head>
         <title>个人中心</title>
         <h:outputStylesheet name="css/personal.css"/>
     </h:head>
     
-    <h:body>
-        <iframe  MARGINWIDTH="0" MARGINHEIGHT="0" HSPACE="0" VSPACE="0" FRAMEBORDER="0" SCROLLING="no" src="../project/head.xhtml" width="100%"  height="auto"/>
-        <ul style="position: absolute;top: 320px;">
-            <li><a href="#home">个人中心</a></li>
-            <li><a href="#project">我的项目</a></li>
-            <li><a href="#guard">我的守护</a></li>
-            <li><a href="#invest">我的资助</a></li>
-        </ul>
-    </h:body>
+    <h:body style="background-image: url(resources/images/background.jpg);">
 
+       
+        
+
+    </h:body>
+-->
+<h:head>
+        <title>个人中心</title>
+        <h:outputStylesheet name="css/personal.css"/>
+       
+
+    </h:head>
+    <h:body style="background-image: url(resources/images/background.jpg)">
+        
+         <div class="title1">
+            <img class="icon" src="resources/images/sxy/icon.png" />
+            <h:form>
+              <h:commandLink class="name" value="中国传统技艺" action="index" target = "_top"/>
+              <h:commandLink class="text" value="登陆|注册" action="login" target = "_top"/>
+            </h:form>
+        </div>
+        
+        <div class="title2">
+            <h:form>
+                <h:body class="tab"></h:body>
+                <h:commandLink class="tab" value="首页" action="index" target = "_top"/>
+                <h:commandLink class="tab" value="机构" action="institution" target = "_top"/>
+                <h:commandLink class="tab" value="清单" action="list" target = "_top"/>
+                <h:commandLink class="tab" value="百科" action="introduce" target = "_top"/>
+                <h:commandLink class="tab" value="资源" action="ziyuan" target = "_top"/>
+            </h:form>
+        </div>
+    <div>
+        <ul>
+            <li><a href="centerPage/center.xhtml" target="iframe_a">个人中心</a></li>
+            <li><a href="centerPage/project.xhtml" target="iframe_a">我的项目</a></li>
+            <li><a href="centerPage/invest.xhtml" target="iframe_a">我的投资</a></li>
+            <li><a href="centerPage/guard.xhtml" target="iframe_a">我的守护</a></li>
+        </ul>
+    </div>
+    <iframe src="centerPage/center.xhtml" name="iframe_a" frameborder="no" width="1000px" height="400px">
+    </iframe>
+    </h:body>
 </html>

@@ -15,7 +15,8 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class ProjectFacade extends AbstractFacade<Project> {
-
+        
+    
     @PersistenceContext(unitName = "RichPU")
     private EntityManager em;
 
@@ -25,7 +26,7 @@ public class ProjectFacade extends AbstractFacade<Project> {
     }
 
     public ProjectFacade() {
-        super(Project.class);
+        super(Project.class);  
     }
     
 }

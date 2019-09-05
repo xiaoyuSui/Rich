@@ -4,6 +4,8 @@ import Entity.util.JsfUtil;
 import Entity.util.PaginationHelper;
 
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -26,8 +28,49 @@ public class InvesteProjController implements Serializable {
     private Entity.InvesteProjFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
+    
+    private List<InvesteProj> projectList;
+    private List<String> invest_header;
+    
+    public void setProjectList(){
+        
+    }
+    
+    public List<InvesteProj> getProjectList(){
+        projectList = this.getFacade().findAll();
+        return projectList;
+    }
 
+    
+    
+    public List<String> getInvestHeader() {
+        System.out.print("我在这我在这！！！！！！！！！！！快看我！！！！！!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		return invest_header;
+	}
+
+    public void setInvestHeader(List<String> header) {
+            this.invest_header = header;
+    }
+    
+    private void initData(){
+        
+        invest_header = Arrays.asList(new String[]{"ID","名称","申请人","申请时间","门类","部类","金额","url"});
+        /**keyMap = new HashMap<String,Object>(){
+            {
+                put("ID","proj_id");
+                put("名称","proj_name");
+                put("申请人","applicant_name");
+                put("申请时间","appl_date");
+                put("门类","proj_catelog");
+                put("部类","proj_class");
+                //put("状态","condition");           
+            }
+     };*/
+       System.out.print("我在这我在这！！！！！！！！！！！快看我！！！！！");
+    }
+    
     public InvesteProjController() {
+        initData();
     }
 
     public InvesteProj getSelected() {

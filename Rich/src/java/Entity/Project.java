@@ -53,6 +53,14 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Project.findByProjRegion", query = "SELECT p FROM Project p WHERE p.projRegion = :projRegion")})
 public class Project implements Serializable {
 
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 20)
+    @Column(name = "proj_condition")
+    private String projCondition;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "project")
+    private Collection<GuardProj> guardProjCollection;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -305,6 +313,23 @@ public class Project implements Serializable {
     @Override
     public String toString() {
         return "Entity.Project[ projId=" + projId + " ]";
+    }
+
+    public String getProjCondition() {
+        return projCondition;
+    }
+
+    public void setProjCondition(String projCondition) {
+        this.projCondition = projCondition;
+    }
+
+    @XmlTransient
+    public Collection<GuardProj> getGuardProjCollection() {
+        return guardProjCollection;
+    }
+
+    public void setGuardProjCollection(Collection<GuardProj> guardProjCollection) {
+        this.guardProjCollection = guardProjCollection;
     }
     
 }
