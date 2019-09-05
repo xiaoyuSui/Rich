@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+>
+    <head>
+        <title>个人中心</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <style>
+            column{
+                color: white;
+            }
+        </style>
+    </head>
+    <h:body>
+        <h:panelGrid columns="8">
+
+        </h:panelGrid>
+        
+        <table>
+            
+        </table>
+        <h:form>
+            <h:dataTable value="1" style="width: 800px">
+                <c:forEach items="#{projectController.projectHeader}" var="phead">
+                       <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{phead}" style="color:white;"/>
+                            </f:facet>
+                        </h:column>
+            </c:forEach>            
+        </h:dataTable>
+    </h:form>
+        
+        <h:form>
+            
+            <h:dataTable value="#{projectController.projectList}" var="item" style="width: 800px; color: white">                  
+                <h:column>
+                    #{item.projId},
+                </h:column>
+                <h:column>
+                    #{item.projName}
+                </h:column>
+                <h:column>
+                    #{item.applicantName}
+                </h:column>
+                <h:column>
+                    #{item.applDate}
+                </h:column>
+                <h:column>
+                    #{item.projCatelog}
+                </h:column>
+                <h:column>
+                    #{item.projClass}
+                </h:column>
+                <h:column>
+                   "http://"+"#{item.projId}"
+                </h:column>
+                
+            </h:dataTable>
+            
+        </h:form>
+      
+    </h:body>
+</html>

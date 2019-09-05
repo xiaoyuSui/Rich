@@ -14,9 +14,8 @@ import javax.persistence.PersistenceContext;
  * @author 17119
  */
 @Stateless
-public class ProjectFacade extends AbstractFacade<Project> {
-        
-    
+public class GuardProjFacade extends AbstractFacade<GuardProj> {
+
     @PersistenceContext(unitName = "RichPU")
     private EntityManager em;
 
@@ -25,8 +24,8 @@ public class ProjectFacade extends AbstractFacade<Project> {
         return em;
     }
 
-    public ProjectFacade() {
-        super(Project.class);  
+    public GuardProjFacade() {
+        super(GuardProj.class);
     }
     
 }

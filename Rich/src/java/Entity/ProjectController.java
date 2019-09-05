@@ -4,6 +4,8 @@ import Entity.util.JsfUtil;
 import Entity.util.PaginationHelper;
 
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -19,17 +21,77 @@ import javax.faces.model.SelectItem;
 @Named("projectController")
 @SessionScoped
 public class ProjectController implements Serializable {
-
+    
     private Project current;
     private DataModel items = null;
+    
     @EJB
     private Entity.ProjectFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
-
-    public ProjectController() {
+    
+    private List<Project> projectList;
+    private List<String> project_header,invest_header,guard_header;
+    
+    public void setProjectList(){
+        
+    }
+    
+    public List<Project> getProjectList(){
+        projectList = this.getFacade().findAll();
+        return projectList;
     }
 
+    public ProjectController(){
+         System.out.print("我在这我在这！！！！！！！！！！！快看我！！！！！!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        initData();
+    }
+    
+    public List<String> getProjectHeader() {
+        System.out.print("我在这我在这！！！！！！！！！！！快看我！！！！！!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		return project_header;
+	}
+
+    public void setProjectHeader(List<String> header) {
+            this.project_header = header;
+    }
+    
+    public List<String> getGuardHeader() {
+        System.out.print("我在这我在这！！！！！！！！！！！快看我！！！！！!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		return project_header;
+	}
+
+    public void setGuardHeader(List<String> header) {
+            this.project_header = header;
+    }
+    
+    public List<String> getInvestHeader() {
+        System.out.print("我在这我在这！！！！！！！！！！！快看我！！！！！!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		return project_header;
+	}
+
+    public void setInvestHeader(List<String> header) {
+            this.project_header = header;
+    }
+    
+    private void initData(){
+        project_header = Arrays.asList(new String[]{"ID","名称","申请人","申请时间","门类","部类","url"});
+        invest_header = Arrays.asList(new String[]{"ID","名称","申请人","申请时间","门类","部类","金额","url"});
+        guard_header = Arrays.asList(new String[]{"ID","名称","申请人","申请时间","门类","部类","url"});
+        /**keyMap = new HashMap<String,Object>(){
+            {
+                put("ID","proj_id");
+                put("名称","proj_name");
+                put("申请人","applicant_name");
+                put("申请时间","appl_date");
+                put("门类","proj_catelog");
+                put("部类","proj_class");
+                //put("状态","condition");           
+            }
+     };*/
+       System.out.print("我在这我在这！！！！！！！！！！！快看我！！！！！");
+    }
+    
     public Project getSelected() {
         if (current == null) {
             current = new Project();
@@ -230,4 +292,8 @@ public class ProjectController implements Serializable {
 
     }
 
+
+    
+    
+    
 }

@@ -4,8 +4,6 @@ import Entity.util.JsfUtil;
 import Entity.util.PaginationHelper;
 
 import java.io.Serializable;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -18,30 +16,30 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 
-@Named("userController")
+@Named("guardProjController")
 @SessionScoped
-public class UserController implements Serializable {
+public class GuardProjController implements Serializable {
 
-    private User current;
+    private GuardProj current;
     private DataModel items = null;
     @EJB
-    private Entity.UserFacade ejbFacade;
+    private Entity.GuardProjFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
-    
 
-    public UserController() {
+    public GuardProjController() {
     }
 
-    public User getSelected() {
+    public GuardProj getSelected() {
         if (current == null) {
-            current = new User();
+            current = new GuardProj();
+            current.setGuardProjPK(new Entity.GuardProjPK());
             selectedItemIndex = -1;
         }
         return current;
     }
 
-    private UserFacade getFacade() {
+    private GuardProjFacade getFacade() {
         return ejbFacade;
     }
 
@@ -69,21 +67,24 @@ public class UserController implements Serializable {
     }
 
     public String prepareView() {
-        current = (User) getItems().getRowData();
+        current = (GuardProj) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "View";
     }
 
     public String prepareCreate() {
-        current = new User();
+        current = new GuardProj();
+        current.setGuardProjPK(new Entity.GuardProjPK());
         selectedItemIndex = -1;
         return "Create";
     }
 
     public String create() {
         try {
+            current.getGuardProjPK().setUserTel(current.getUser().getUserTel());
+            current.getGuardProjPK().setProjId(current.getProject().getProjId());
             getFacade().create(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("UserCreated"));
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("GuardProjCreated"));
             return prepareCreate();
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
@@ -92,15 +93,17 @@ public class UserController implements Serializable {
     }
 
     public String prepareEdit() {
-        current = (User) getItems().getRowData();
+        current = (GuardProj) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "Edit";
     }
 
     public String update() {
         try {
+            current.getGuardProjPK().setUserTel(current.getUser().getUserTel());
+            current.getGuardProjPK().setProjId(current.getProject().getProjId());
             getFacade().edit(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("UserUpdated"));
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("GuardProjUpdated"));
             return "View";
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
@@ -109,7 +112,7 @@ public class UserController implements Serializable {
     }
 
     public String destroy() {
-        current = (User) getItems().getRowData();
+        current = (GuardProj) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         performDestroy();
         recreatePagination();
@@ -133,7 +136,7 @@ public class UserController implements Serializable {
     private void performDestroy() {
         try {
             getFacade().remove(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("UserDeleted"));
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("GuardProjDeleted"));
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
         }
@@ -189,32 +192,40 @@ public class UserController implements Serializable {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }
 
-    public User getUser(java.lang.String id) {
+    public GuardProj getGuardProj(Entity.GuardProjPK id) {
         return ejbFacade.find(id);
     }
 
-    @FacesConverter(forClass = User.class)
-    public static class UserControllerConverter implements Converter {
+    @FacesConverter(forClass = GuardProj.class)
+    public static class GuardProjControllerConverter implements Converter {
+
+        private static final String SEPARATOR = "#";
+        private static final String SEPARATOR_ESCAPED = "\\#";
 
         @Override
         public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            UserController controller = (UserController) facesContext.getApplication().getELResolver().
-                    getValue(facesContext.getELContext(), null, "userController");
-            return controller.getUser(getKey(value));
+            GuardProjController controller = (GuardProjController) facesContext.getApplication().getELResolver().
+                    getValue(facesContext.getELContext(), null, "guardProjController");
+            return controller.getGuardProj(getKey(value));
         }
 
-        java.lang.String getKey(String value) {
-            java.lang.String key;
-            key = value;
+        Entity.GuardProjPK getKey(String value) {
+            Entity.GuardProjPK key;
+            String values[] = value.split(SEPARATOR_ESCAPED);
+            key = new Entity.GuardProjPK();
+            key.setProjId(Integer.parseInt(values[0]));
+            key.setUserTel(values[1]);
             return key;
         }
 
-        String getStringKey(java.lang.String value) {
+        String getStringKey(Entity.GuardProjPK value) {
             StringBuilder sb = new StringBuilder();
-            sb.append(value);
+            sb.append(value.getProjId());
+            sb.append(SEPARATOR);
+            sb.append(value.getUserTel());
             return sb.toString();
         }
 
@@ -223,11 +234,11 @@ public class UserController implements Serializable {
             if (object == null) {
                 return null;
             }
-            if (object instanceof User) {
-                User o = (User) object;
-                return getStringKey(o.getUserTel());
+            if (object instanceof GuardProj) {
+                GuardProj o = (GuardProj) object;
+                return getStringKey(o.getGuardProjPK());
             } else {
-                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: " + User.class.getName());
+                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: " + GuardProj.class.getName());
             }
         }
 
