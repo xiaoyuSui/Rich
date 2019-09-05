@@ -33,6 +33,9 @@ public class UserController implements Serializable {
     public UserController() {
     }
 
+    public UserController(String phonenumberString,String name,String password){
+        current = new User(phonenumberString,name,password);
+    }
     public User getSelected() {
         if (current == null) {
             current = new User();
@@ -79,7 +82,19 @@ public class UserController implements Serializable {
         selectedItemIndex = -1;
         return "Create";
     }
-
+   public String login(){
+       if(current.getUserTel().equalsIgnoreCase("00000000000")
+               &&current.getUserPsw().equalsIgnoreCase("000000")){
+           return "/manager.xhtml";
+       }
+       else{
+       return "/log_in.xhtml";
+       }
+   }
+   public String logup(){
+       create();
+       return "/log_in.xhtml";
+   }
     public String create() {
         try {
             getFacade().create(current);
