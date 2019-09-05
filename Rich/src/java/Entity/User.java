@@ -36,9 +36,6 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "User.findByUserPsw", query = "SELECT u FROM User u WHERE u.userPsw = :userPsw")})
 public class User implements Serializable {
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private Collection<GuardProj> guardProjCollection;
-
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -150,15 +147,6 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "Entity.User[ userTel=" + userTel + " ]";
-    }
-
-    @XmlTransient
-    public Collection<GuardProj> getGuardProjCollection() {
-        return guardProjCollection;
-    }
-
-    public void setGuardProjCollection(Collection<GuardProj> guardProjCollection) {
-        this.guardProjCollection = guardProjCollection;
     }
     
 }
