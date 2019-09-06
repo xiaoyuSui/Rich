@@ -17,7 +17,7 @@ and open the template in the editor.
         <style>
             column{
                 color: white;
-                widows: 50px;
+                widows: 50;
             }
             .outp{
                 color: white;
@@ -25,12 +25,7 @@ and open the template in the editor.
         </style>
     </head>
     <h:body>
-        <h:panelGrid columns="8">
 
-        </h:panelGrid>
-        
-        
-        
         <h:form>
             <h:dataTable value="1" style="width: 800px">
                 <c:forEach items="#{projectController.projectHeader}" var="phead">
@@ -41,16 +36,13 @@ and open the template in the editor.
                         </h:column>
             </c:forEach>            
         </h:dataTable>
-    </h:form>
+        </h:form>
         
         <h:form>
             
             <h:dataTable value="#{a}" var="item" border="0" cellpadding="20" cellspacing="0"
                          rowClasses="jsfcrud_odd_row,jsfcrud_even_row" headerClass="t_head" rules="all"
                          style="width: 100%;border-collapse: collapse;">                  
-                <h:column>
-                    <h:outputText value="#{}" style="color:white;"/>
-                </h:column>
                 <h:column>
                     <h:outputText value="#{item.projName}" style="color:white;"/>
                 </h:column>
@@ -69,7 +61,6 @@ and open the template in the editor.
                 <h:column>
                    <h:outputText value="#http://#{item.projId}" style="color:white;"/>
                 </h:column>
-                
             </h:dataTable>
             
         </h:form>

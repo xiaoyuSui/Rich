@@ -279,19 +279,19 @@ public class ProjectController implements Serializable {
     
     public void btnAccept(){
             if(current!=null){
-                current.setProjCondition("1");
+                current.setProjCondition("通过");
             }
             else{
-                current.setProjCondition("-1");
+                current.setProjCondition("未通过");
             }
     }
     
     public void btnDeny(ActionEvent e){
            if(current!=null){
-                current.setProjCondition("-1");
+                current.setProjCondition("通过");
             }
             else{
-                current.setProjCondition("1");
+                current.setProjCondition("未通过");
             } 
     }
     

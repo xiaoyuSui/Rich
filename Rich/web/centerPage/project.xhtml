@@ -37,10 +37,7 @@ and open the template in the editor.
         
         <h:form>
             
-            <h:dataTable value="#{projectController.projectList}" var="item" style="width: 800px;">                  
-                <h:column>
-                    #{item.projId},
-                </h:column>
+            <h:dataTable value="#{AllController.getMyProject()}" var="item" style="width: 800px;">                  
                 <h:column>
                     #{item.projName}
                 </h:column>

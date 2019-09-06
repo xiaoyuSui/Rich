@@ -19,10 +19,7 @@ and open the template in the editor.
         <h:panelGrid columns="8">
 
         </h:panelGrid>
-        
-        <table>
-            
-        </table>
+
         <h:form>
             <h:dataTable value="1" style="width: 800px">
                 <c:forEach items="#{investeProjController.investHeader}" var="phead">
@@ -35,12 +32,8 @@ and open the template in the editor.
         </h:dataTable>
     </h:form>
         
-        <h:form>
-            
-            <h:dataTable value="#{investeProjController.projectList}" var="item" style="width: 800px;">                  
-                <h:column>
-                    #{item.projId},
-                </h:column>
+        <h:form>            
+            <h:dataTable value="#{AllController.getMyInvest()}" var="item" style="width: 800px;">                  
                 <h:column>
                     #{item.projName}
                 </h:column>
@@ -58,10 +51,8 @@ and open the template in the editor.
                 </h:column>
                 <h:column>
                    "http://"+"#{item.projId}"
-                </h:column>
-                
-            </h:dataTable>
-            
+                </h:column>               
+            </h:dataTable>            
         </h:form>
       
     </h:body>
