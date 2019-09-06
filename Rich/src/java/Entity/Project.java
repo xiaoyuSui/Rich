@@ -50,7 +50,11 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Project.findByProjName", query = "SELECT p FROM Project p WHERE p.projName = :projName")
     , @NamedQuery(name = "Project.findByProjProvince", query = "SELECT p FROM Project p WHERE p.projProvince = :projProvince")
     , @NamedQuery(name = "Project.findByProjCity", query = "SELECT p FROM Project p WHERE p.projCity = :projCity")
-    , @NamedQuery(name = "Project.findByProjRegion", query = "SELECT p FROM Project p WHERE p.projRegion = :projRegion")})
+    , @NamedQuery(name = "Project.findByUserTel", query = "SELECT p FROM Project p WHERE p.userTel = :userTel")
+    , @NamedQuery(name = "Project.findByProjRegion", query = "SELECT p FROM Project p WHERE p.projRegion = :projRegion")
+    //Add
+    , @NamedQuery(name = "Project.CountByUserTel", query = "SELECT COUNT(p.projId) FROM Project p WHERE p.userTel = :userTel")})
+
 public class Project implements Serializable {
 
     private static final long serialVersionUID = 1L;

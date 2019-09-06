@@ -29,7 +29,10 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "InvesteProj.findAll", query = "SELECT i FROM InvesteProj i")
     , @NamedQuery(name = "InvesteProj.findByProjId", query = "SELECT i FROM InvesteProj i WHERE i.investeProjPK.projId = :projId")
     , @NamedQuery(name = "InvesteProj.findByUserTel", query = "SELECT i FROM InvesteProj i WHERE i.investeProjPK.userTel = :userTel")
-    , @NamedQuery(name = "InvesteProj.findByFunding", query = "SELECT i FROM InvesteProj i WHERE i.funding = :funding")})
+    , @NamedQuery(name = "InvesteProj.findByFunding", query = "SELECT i FROM InvesteProj i WHERE i.funding = :funding")
+    //Add
+    , @NamedQuery(name = "InvesteProj.CountByUserTel", query = "SELECT COUNT(i.investeProjPK.projId) FROM InvesteProj i WHERE i.investeProjPK.userTel = :userTel")})
+
 public class InvesteProj implements Serializable {
 
     private static final long serialVersionUID = 1L;
