@@ -1,0 +1,783 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 5, 2019, 9:29:50 AM
+    Author     : sunyishuai
+*/
+
+html, body, h1, h2, h3, h4, h5, h6, div, ol, ul, li, dl, dt, dd, table, caption, tr, th, td, span, p, a, b, u, i, em, img, iframe, fieldset, label, legend, input, button, select, textarea {
+
+    margin: 0;
+    margin-bottom: 0px;
+    padding: 0;
+
+}
+form{
+    margin: 0;
+    margin-bottom: 0px;
+    padding: 0;
+}
+.page-mod .page-box {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
+    margin-left: auto;
+
+}
+.page-mod .page-item {
+    float: left;
+    margin: 0 6px;
+    min-width: 30px;
+    font-family: 'xfont', Arial;
+    font-size: 16px;
+    line-height: 1.875;
+}
+ol, ul, li {
+    list-style: none;
+}
+.page-mod .page-item > a {
+    color: #333;
+}
+.page-mod .page-item .prev {
+    margin-right: 10px;
+    background-position: left;
+}
+.page-mod .page-item .prev, .page-mod .page-item .next {
+    display: block;
+    margin: auto;
+    margin-right: auto;
+    padding: 0;
+    width: 13px;
+    height: 30px;
+    background: url(images/list/png27a.png) no-repeat;
+    background-position-x: 0%;
+    background-position-y: 0%;
+}
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 3, 2019, 5:02:24 PM
+    Author     : zhangyihua
+*/
+html, body, h1, h2, h3, h4, h5, h6, div, ol, ul, li, dl, dt, dd, table, caption, tr, th, td, span, p, a, b, u, i, em, img, iframe, fieldset, form, label, legend, input, button, select, textarea {
+    margin: 0;
+    padding: 0;
+    padding-top: 0px;
+}
+.h30 {
+    font-size: 30px;
+    color: #fff;
+}
+.h30, .h28, .h26, .h24, .h22, .h20, .h18, .h16 {
+    line-height: 1.2;
+}
+.block-mod8 .title .h30::before {
+    top: 0;
+    background-position: left;
+}
+.block-mod8 .title .h30::after {
+    bottom: 0;
+    background-position: right;
+    background-position-x: right;
+    background-position-y: center;
+}
+.block-mod8 .title .h30::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 32px;
+    height: 22px;
+    background: url(images/list/png17.png) no-repeat;
+    background-position-x: 0%;
+    background-position-y: 0%;
+}
+.block-mod8 .title .h30::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 32px;
+    height: 22px;
+    background: url(images/list/png18.png) no-repeat;
+    background-position-x: 0%;
+    background-position-y: 0%;
+}
+.block-mod8 .title .dot {
+    color: #fff;
+    display: inline-block;
+    margin: 30px 0;
+    height: 80px;
+    border-left: 1px dotted;
+}
+.block-mod8 {
+    height: 850px;
+    overflow: hidden;
+}
+.block-mod8 .img {
+}
+.img {
+    position: relative;
+}
+.img .mask {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.block-mod8 .title {
+    position: absolute;
+    left: 78px;
+    top: 255px;
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+    writing-mode: tb-rl;
+}
+.block-mod8 .title .h30 {
+    position: relative;
+    display: inline-block;
+    padding: 40px 0;
+    width: 1em;
+    font-size: 30px;
+    line-height: 1;
+}
+.block-mod8 .block-item {
+    position: relative;
+    float: left;
+    width: 50%;
+    height: 100%;
+    background: url(images/list/img88.jpg) center no-repeat;
+    background-image: url("images/list/img88.jpg");
+    background-size: auto;
+    background-size: cover;
+}
+.block-mod8 .list {
+    position: relative;
+    margin-left: 162px;
+    height: 100%;
+    overflow: hidden;
+}
+.block-mod8 .list-item.l1 {
+    top: 276px;
+}
+.block-mod8 .list-item.l2 {
+    top: 250px;
+}
+.block-mod8 .list-item.l3{ top: 326px;}
+.block-mod8 .list-item.l4{ top: 276px;}
+.block-mod8 .list-item.l5{ top: 250px;}
+.block-mod8 .list-item.l6{ top: 326px;}
+.block-mod8 .list-item {
+    position: relative;
+    float: left;
+    padding-top: 25px;
+    padding-right: 25px;
+    height: 100%;
+    font-size: 16px;
+    color: #9da4ac;
+}
+.block-mod8 .list-item {
+    font-size: 16px;
+    color: #9da4ac;
+}
+.block-mod8 .list-item::before {
+    top: 0;
+    right: 0;
+    width: 17px;
+    height: 25px;
+    background: url(images/list/png54.png) no-repeat;
+}
+.block-mod8 .list-item::after {
+    top: 25px;
+    right: 8px;
+    bottom: 0;
+    border-left: 1px solid #fff;
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+}
+.block-mod8 .list-item::before, .block-mod8 .list-item::after {
+    content: '';
+    position: absolute;
+}
+.block-mod8 .list-item:hover {
+    color: #fff;
+}
+.block-mod8 .list-item a, .block-mod8 .list-item .link {
+    display: block;
+    width: 1.5em;
+    line-height: 1;
+    word-break: break-all;
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+    writing-mode: tb-rl;
+}
+a:focus, a:hover {
+    color: inherit !important;
+}
+a {
+    color: inherit;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.x-header, .x-footer, .x-container {min-width: 1250px;}
+.x-container {background: url(images/list/png14.png);font-family: "微软雅黑";}
+.x-header, .x-footer, .x-container{ position: relative; width: 100%; min-width: 1250px; margin: auto; z-index: 1;}
+.represen2 {
+    padding: 100px 0 50px;
+    overflow: hidden;
+}
+.x-wrap {
+    width: 1230px;
+}
+.x-wrap {
+    position: relative;
+    width: 1230px;
+    height: 100%;
+    margin: auto;
+}
+.represen2 .title {
+    text-align: center;
+    color: #333;
+    padding: 0 40px 53px;
+}
+.represen2 .title .p {
+    font-family: "微软雅黑";
+    font-size: 14px;
+    padding: 30px 0 35px;
+    text-align: justify;
+    text-indent: 2em;
+}
+.represen2 .num-box {
+    margin-bottom: 57px;
+    text-align: center;
+}
+.represen2 .num-item {
+    display: inline-block;
+    width: 23%;
+    vertical-align: top;
+}
+.represen2 .num-item .b {
+    font-family: impact;
+    font-size: 92px;
+    line-height: 1.3;
+    color: #333;
+}
+.represen2 .num-item .h18 {
+    color: #333;
+    font-family: 微软雅黑;
+}
+.represen2 .screen-mod {
+    font-size: 0;
+}
+.screen-mod {
+    font-family: "微软雅黑";
+}
+.represen2 .screen-mod .select-mod, .represen2 .screen-mod .input, .represen2 .screen-mod .submit {
+    font-size: 14px;
+    margin-right: 16px;
+}
+.represen2 .screen-mod .select-mod {
+    color: #333;
+    width: 206px;
+}
+.screen-mod .select-mod {
+    margin-right: 12px;
+    width: 150px;
+}
+.screen-mod .select-mod, .screen-mod .input, .screen-mod .input-mod {
+    display: inline-block;
+    vertical-align: middle;
+}
+.select-mod {
+    position: relative;
+    text-align: left;
+}
+.screen-mod .select-bar {
+    display: block;
+}
+.select-mod .select-bar {
+    position: relative;
+}
+.bp-border {
+    position: relative;
+    display: inline-block;
+    padding: 0 10px;
+    font-family: "微软雅黑";
+    vertical-align: middle;
+    overflow: hidden;
+}
+.bp-border::before {
+    left: 0;
+    background-position: left;
+}
+.bp-border::after {
+
+    right: 0;
+    background-position: right;
+
+}
+.bp-border::before, .bp-border::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 10px;
+    background: url(images/list/png23.png) no-repeat;
+    background-color: rgba(0, 0, 0, 0);
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-image: url("images/list/png23.png");
+    background-size: auto;
+    background-origin: padding-box;
+    background-clip: border-box;
+}
+.screen-mod .select-btn {
+    padding: 10px 25px 10px 5px;
+    height: auto;
+    line-height: 2;
+}
+.bp-border .bp-inner {
+    background: url(images/list/png25.png) repeat-x;
+    line-height: 48px;
+}
+.select-mod .select-btn {
+    position: relative;
+    height: 21px;
+    padding: 5px 50px 5px 15px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.select-mod .select-val {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-bottom: 0;
+}
+.placeholder {
+    color: #333;
+}
+.placeholder {
+    color: #333;
+}
+.screen-mod .select-btn::after {
+    height: 28px;
+}
+.select-mod .select-btn::after {
+    content: '\e824';
+    position: absolute;
+    right: 10px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 21px;
+    font-family: "xfont" !important;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+.select-mod .select-native {
+    display: none;
+}
+input, select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+input, button, textarea, select {
+    font: inherit;
+    outline: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+}
+.represen2 .select-mod .select-cont::before, .represen2 .select-mod .select-query::before {
+    background-size: 100% auto;
+    height: 15px;
+}
+.screen-mod .select-cont::before, .screen-mod .select-query::before {
+    border-color: #d8d8d8;
+}
+.select-mod .select-cont::before, .select-mod .select-query::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 10px;
+    background: url(images/list/png46.png) no-repeat;
+    background-color: rgba(0, 0, 0, 0);
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-image: url("images/list/png46.png");
+    background-size: auto;
+    background-origin: padding-box;
+    background-clip: border-box;
+    background-size: 100%;
+}
+.select-mod .select-opts, .select-mod .squery-list {
+    position: relative;
+    max-height: 200px;
+    padding: 15px;
+    padding-right: 15px;
+    padding-right: 5px;
+}
+.mCustomScrollbar {
+    -ms-touch-action: pinch-zoom;
+    touch-action: pinch-zoom;
+}
+ol, ul, li {
+    list-style: none;
+}
+.mCustomScrollBox {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    max-width: 100%;
+    outline: none;
+    direction: ltr;
+}
+.mCSB_inside > .mCSB_container {
+    margin-right: 30px;
+}
+.mCSB_container {
+    overflow: hidden;
+    width: auto;
+    height: auto;
+}
+.select-mod .select-item, .select-mod .squery-item {
+    padding: 2px 0;
+    cursor: pointer;
+    font-size: 13px;
+}
+.select-mod .select-item, .select-mod .squery-item {
+
+    cursor: pointer;
+    font-size: 13px;
+
+}
+.mCSB_scrollTools, .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar, .mCSB_scrollTools .mCSB_buttonUp, .mCSB_scrollTools .mCSB_buttonDown, .mCSB_scrollTools .mCSB_buttonLeft, .mCSB_scrollTools .mCSB_buttonRight {
+
+    -webkit-transition: opacity .2s ease-in-out, background-color .2s ease-in-out;
+    -moz-transition: opacity .2s ease-in-out, background-color .2s ease-in-out;
+    -o-transition: opacity .2s ease-in-out, background-color .2s ease-in-out;
+    transition: opacity .2s ease-in-out, background-color .2s ease-in-out;
+
+}
+.mCSB_scrollTools {
+
+    position: absolute;
+    width: 5px;
+    height: auto;
+    left: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+}
+.mCSB_scrollTools .mCSB_draggerContainer {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: auto;
+
+}
+.mCSB_scrollTools .mCSB_dragger {
+
+    cursor: pointer;
+    width: 100%;
+    height: 30px;
+    z-index: 1;
+
+}
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+
+    background-color: #474747;
+
+}
+.mCSB_scrollTools, .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar, .mCSB_scrollTools .mCSB_buttonUp, .mCSB_scrollTools .mCSB_buttonDown, .mCSB_scrollTools .mCSB_buttonLeft, .mCSB_scrollTools .mCSB_buttonRight {
+
+    -webkit-transition: opacity .2s ease-in-out, background-color .2s ease-in-out;
+    -moz-transition: opacity .2s ease-in-out, background-color .2s ease-in-out;
+    -o-transition: opacity .2s ease-in-out, background-color .2s ease-in-out;
+    transition: opacity .2s ease-in-out, background-color .2s ease-in-out;
+
+}
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+
+    position: relative;
+    width: 5px;
+    height: 100%;
+    margin: 0 auto;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    border-radius: 16px;
+    text-align: center;
+
+}
+.mCSB_scrollTools .mCSB_draggerRail {
+
+    background-color: #909090;
+
+}
+.mCSB_scrollTools .mCSB_draggerRail {
+
+    width: 1px;
+    height: 100%;
+    margin: 0 auto;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    border-radius: 16px;
+
+}
+.represen2 .screen-mod .select-mod, .represen2 .screen-mod .input, .represen2 .screen-mod .submit {
+
+    font-size: 14px;
+    margin-right: 16px;
+
+}
+.represen2 .screen-mod .input {
+
+    width: 203px;
+
+}
+.screen-mod .input {
+
+    width: 290px;
+
+}
+.screen-mod .input {
+
+    margin-right: 12px;
+
+}
+.screen-mod .select-mod, .screen-mod .input, .screen-mod .input-mod {
+
+    display: inline-block;
+    vertical-align: top;
+
+}
+.screen-mod .input .bp-border {
+
+    display: block;
+
+}
+.bp-border {
+
+    position: relative;
+    display: inline-block;
+    padding: 0 10px;
+    font-family: "微软雅黑";
+    vertical-align: middle;
+    overflow: hidden;
+
+}
+.screen-mod .input .bp-inner {
+
+    padding: 0 8px;
+
+}
+.bp-border .bp-inner {
+
+    background: url(images/list/png25.png) repeat-x;
+    line-height: 48px;
+
+}
+.represen2 .screen-mod .input input {
+
+    color: #333;
+
+}
+.screen-mod .input input {
+
+    padding: 0;
+    background: none;
+
+}
+.screen-mod .input input {
+
+    display: block;
+    width: 100%;
+    height: 48px;
+
+}
+input, select {
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+}
+input, button, textarea, select {
+
+    font: inherit;
+    outline: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+
+}
+.represen2 .screen-mod .submit {
+
+    margin: 0;
+
+}
+.represen2 .screen-mod .select-mod, .represen2 .screen-mod .input, .represen2 .screen-mod .submit {
+
+    font-size: 14px;
+    margin-right: 16px;
+
+}
+.screen-mod .submit {
+
+    cursor: pointer;
+
+}
+.screen-mod .submit {
+
+}
+.bp-border.cur, a.bp-border:hover {
+
+    color: #fff;
+
+}
+.bp-border {
+
+    position: relative;
+    display: inline-block;
+    padding: 0 10px;
+    font-family: "微软雅黑";
+    vertical-align: middle;
+    overflow: hidden;
+
+}
+.bp-border.cur::before, .bp-border.cur::after, a.bp-border:hover::before, a.bp-border:hover::after {
+
+    background-image: url(images/list/png24.png);
+
+}
+.bp-border::before {
+
+    left: 0;
+    background-position: left;
+
+}
+.screen-mod .submit .bp-inner {
+
+    width: 100px;
+
+}
+.bp-border.cur .bp-inner, a.bp-border:hover .bp-inner {
+
+    background-image: url(images/list/png26.png);
+
+}
+.bp-border .bp-inner {
+
+    background: url(images/list/png25.png) repeat-x;
+    background-image: url("images/list/png25.png");
+    line-height: 48px;
+
+}
+.screen-mod .submit button {
+
+    display: block;
+    width: 100%;
+    cursor: pointer;
+
+}
+input, button, textarea, select {
+
+    font: inherit;
+    outline: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+
+}
+.screen-mod::after {
+
+    content: '';
+    display: table;
+    clear: both;
+
+}
+.represen2 .tit {
+
+    color: #333;
+    padding: 50px 0 25px;
+    font-family: "微软雅黑";
+
+}
+.h18 {
+
+    font-size: 18px;
+
+}
+.represen2 .tit .col {
+
+    color: #9a2929;
+    display: inline-block;
+
+}
+/* 下拉选框 */
+.select-mod{ position: relative; text-align: left;}
+.select-mod .select-bar{ position: relative;}
+.select-mod .select-btn{ position: relative; height: 21px; padding: 5px 50px 5px 15px; overflow: hidden; cursor: pointer;}
+.select-mod .select-btn:after{ content: '\e824'; position: absolute; right: 10px; top: 0; bottom: 0; margin: auto; height: 21px; font-family: "xfont" !important;
+                               -webkit-font-smoothing: antialiased;
+                               -webkit-text-stroke-width: 0.2px;
+                               -moz-osx-font-smoothing: grayscale;
+}
+.select-mod .select-val{ overflow: hidden; white-space: nowrap; text-overflow: ellipsis;margin-bottom: 0;}
+.select-mod .select-txt{ position: absolute; left: 0; top: 0; right: 50px; bottom: 0; padding: 5px 15px;}
+.select-mod .select-input{ display: block; width: 100%;}
+.select-mod .select-native{ display: none;}
+.select-mod .select-cont, .select-mod .select-query{ position: absolute; left: 0; right: 0; top: 100%; padding-bottom: 10px; background: url(../image/temp/png47.png) repeat-y; background-size: 100%; background-clip: content-box; z-index:1; opacity: 0; visibility: hidden;}
+.select-mod .select-cont:before, .select-mod .select-query:before{ content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 10px; background: url(../image/temp/png46.png) no-repeat; background-size: 100%;}
+.select-mod .select-opts, .select-mod .squery-list{ position: relative; max-height: 200px; padding: 15px; padding-right: 5px;}
+.select-mod .select-item, .select-mod .squery-item{ padding: 2px 0; cursor: pointer;font-size: 13px;}
+.select-mod .select-item.selected, .select-mod .select-item:hover, .select-mod .squery-item.selected, .select-mod .squery-item:hover { color: #9a2929;}
+.select-mod .select-item.selected, .select-mod .squery-item.selected{ cursor: default;}
+.select-mod .select-grp{ padding: 5px; margin-bottom: 2px; background-color: gainsboro;}
+.select-mod .select-tit{ padding: 5px; background-color: silver; cursor: pointer;}
+.select-mod .select-box{ padding: 5px; display: none;}
+.select-mod .select-grp.open .select-box{ display: block;}
+.select-mod.sc-show .select-btn:after{ content: '\e823';}
+.select-mod.sc-show .select-cont, .select-mod.sq-show .select-query{ opacity: 1; visibility: visible;}
+.select-mod.sc-show .bp-border::before, .select-mod.sc-show .bp-border::after{ background-image: url(images/list/png45.png);}
+.select-mod .select-bar:hover{ color: #909090;}
+.select-mod .select-query{}
+.select-mod .select-query:before{}
+.select-mod .squery-list{}
+.select-mod .squery-item{}
+.represen2 .screen-mod .select-mod {color: #333;width: 206px;}
+.represen2 .select-mod .select-cont, .represen2 .select-mod .select-query {background-size: 100% auto;}
+.represen2 .select-mod .select-cont:before, .represen2 .select-mod .select-query:before {background-size: 100% auto;height: 15px;}
+.represen2 .screen-mod .select-mod,.represen2 .screen-mod .input,.represen2 .screen-mod .submit{ font-size:14px; margin-right:16px; }
+
+.screen-mod .select-bar {
+    display: block;
+}
+.select-mod .select-bar {
+    position: relative;
+}
