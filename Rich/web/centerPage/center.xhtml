@@ -45,11 +45,11 @@ and open the template in the editor.
         
         <h:form>
             
-            <h:dataTable value="#{projectController.projectList}" var="item" border="0" cellpadding="20" cellspacing="0"
+            <h:dataTable value="#{a}" var="item" border="0" cellpadding="20" cellspacing="0"
                          rowClasses="jsfcrud_odd_row,jsfcrud_even_row" headerClass="t_head" rules="all"
                          style="width: 100%;border-collapse: collapse;">                  
                 <h:column>
-                    <h:outputText value="#{item.projId}" style="color:white;"/>
+                    <h:outputText value="#{}" style="color:white;"/>
                 </h:column>
                 <h:column>
                     <h:outputText value="#{item.projName}" style="color:white;"/>

@@ -3,17 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Rich/Rich/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Rich/Rich/src/java/Entity/GuardProjController.java</file>
+            <file>file:/C:/Rich/Rich/web/centerPage/guard.xhtml</file>
+            <file>file:/C:/Rich/Rich/web/centerPage/project.xhtml</file>
             <file>file:/C:/Rich/Rich/web/resources/js/index_list.js</file>
-            <file>file:/C:/Rich/Rich/web/introduce.xhtml</file>
             <file>file:/C:/Rich/Rich/web/centerPage/center.xhtml</file>
-            <file>file:/C:/Rich/Rich/web/resources/js/lunbotu.js</file>
-            <file>file:/C:/Rich/Rich/src/java/Entity/ProjectController.java</file>
-            <file>file:/C:/Rich/Rich/src/java/Entity/InvesteProjController.java</file>
-            <file>file:/C:/Rich/Rich/web/resources/css/personal.css</file>
+            <file>file:/C:/Rich/Rich/src/java/Entity/GuardProj.java</file>
             <file>file:/C:/Rich/Rich/web/lunbotu.xhtml</file>
-            <file>file:/C:/Rich/Rich/web/center.xhtml</file>
+            <file>file:/C:/Rich/Rich/src/java/Entity/AllController.java</file>
         </group>
     </open-files>
 </project-private>

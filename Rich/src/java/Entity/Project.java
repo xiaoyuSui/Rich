@@ -57,6 +57,12 @@ import javax.xml.bind.annotation.XmlTransient;
 
 public class Project implements Serializable {
 
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 20)
+    @Column(name = "proj_condition")
+    private String projCondition;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -134,7 +140,13 @@ public class Project implements Serializable {
     @ManyToOne(optional = false)
     private User userTel;
 
+    private static int num = 0; 
+    
+    
+    
     public Project() {
+        num++;
+        projId=num;
     }
 
     public Project(Integer projId) {
@@ -310,5 +322,14 @@ public class Project implements Serializable {
     public String toString() {
         return "Entity.Project[ projId=" + projId + " ]";
     }
+
+    public String getProjCondition() {
+        return projCondition;
+    }
+
+    public void setProjCondition(String projCondition) {
+        this.projCondition = projCondition;
+    }
+    
     
 }

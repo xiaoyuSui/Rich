@@ -62,4 +62,27 @@ public abstract class AbstractFacade<T> {
         return ((Long) q.getSingleResult()).intValue();
     }
     
+    public List<T> findAll(int condition) {
+        switch (condition) {
+            case 0:
+            {
+                String hql="SELECT p FROM project p WHERE p.condition=0";
+                javax.persistence.Query q=getEntityManager().createQuery(hql);
+                return q.getResultList();
+            }    case -1:
+            {
+                String hql="SELECT p FROM project p WHERE p.condition=-1";
+                javax.persistence.Query q=getEntityManager().createQuery(hql);
+                return q.getResultList();
+            }    case 1:
+            {
+                String hql="SELECT p FROM project p WHERE p.condition=1";
+                javax.persistence.Query q=getEntityManager().createQuery(hql);
+                return q.getResultList();
+            }    default:
+                javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
+                cq.select(cq.from(entityClass));
+                return getEntityManager().createQuery(cq).getResultList();
+        }
+    }
 }

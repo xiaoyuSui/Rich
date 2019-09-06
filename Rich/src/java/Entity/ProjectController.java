@@ -2,6 +2,7 @@ package Entity;
 
 import Entity.util.JsfUtil;
 import Entity.util.PaginationHelper;
+import java.awt.event.ActionEvent;
 
 import java.io.Serializable;
 import java.util.Arrays;
@@ -32,19 +33,6 @@ public class ProjectController implements Serializable {
     
     private List<Project> projectList;
     private List<String> project_header;
-    
-    //连接list界面
-    private int kind=0;
-    
-    public int getKind(){
-        return kind;
-    }
-    
-    public void setKind(int kind_){
-        //System.out.print("我真的被调用了！！！！！！！！！！！！！！！！！！！！1");
-        kind = kind_;
-        
-    }
     
     public void setProjectList(){
         
@@ -271,8 +259,40 @@ public class ProjectController implements Serializable {
 
     }
 
+//-------------------------------------gcx--------------------------------------
+    public List<Project> getProjectList(int condition){
+        projectList=this.getFacade().findAll(condition);
+        return projectList;
+    }
 
+    public void btnUnchecked(){
+        getProjectList(0);
+    }
     
+    public void btnCheckSuccess(){
+        getProjectList(1);
+    }
     
+    public void btnCheckFail(){
+        getProjectList(-1);
+    }
+    
+    public void btnAccept(){
+            if(current!=null){
+                current.setProjCondition("1");
+            }
+            else{
+                current.setProjCondition("-1");
+            }
+    }
+    
+    public void btnDeny(ActionEvent e){
+           if(current!=null){
+                current.setProjCondition("-1");
+            }
+            else{
+                current.setProjCondition("1");
+            } 
+    }
     
 }

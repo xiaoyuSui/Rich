@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>登陆</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" type="text/css" href="resources/css/log_in.css"/>
+        
+    </h:head>
+    <h:body style="background-image: url(resources/images/background.jpg);background-size: 100%">
+        <div id="wrapper">
+            <nav class="switch_nav" >
+                <a href="log_up.xhtml" id="switch_signup" class="switch_btn">注册</a>
+                <a href="javascript:;" id="switch_login" class="switch_btn on">登陆</a>
+                <div class="switch_bottom" id="switch_bottom"></div>
+            </nav>
+        </div>
+        <h:form>
+            <p:panel id="panel"> 
+                <h:panelGrid columns="1" class="group_input">
+                    <p:inputText id="userTel"  value="#{AllController.tempUser.userTel}" required="true" maxlength="20" placeholder="输入手机号" requiredMessage="请输入手机号"/>
+        <!--p:inputText id="userName" value="#{AllController.tempUser.userName}" required="true" maxlength="20" placeholder="输入用户名" requiredMessage="请输入用户名"/-->
+                    <p:password id="userPsw"  value="#{AllController.tempUser.userPsw}" required="true" maxlength="20" placeholder="输入密码" requiredMessage="请输入密码"/>
+                </h:panelGrid>
+                <p:commandButton value="登录" update="panel" class="login-btn" action="#{AllController.logIn}" />
+            </p:panel>
+        </h:form>
+    </h:body>
+</html>

@@ -5,6 +5,7 @@
  */
 package Entity;
 
+import java.util.Iterator;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -41,4 +42,11 @@ public class ProjectFacade extends AbstractFacade<Project> {
         return ((Long)query.getSingleResult()).intValue();
     }
     
+    public Project findByProjId(int id){
+        Query query = em.createNamedQuery("Project.findByProjId").setParameter("projId", id);
+        return (Project) query.getSingleResult();
+    }
+    
+    
+
 }
