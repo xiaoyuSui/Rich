@@ -40,45 +40,37 @@ public class AllController implements Serializable{
     
     //当前用户申请项目总数
     public int MyProjectSum(){
-        int sum;
-        Query query = getGuardFacade().getEntityManager().createNamedQuery("Project.CountByUserTel").setParameter("userTel", current.getUserTel());
-        sum = query.
+       int sum = getProjFacade().countByUserTel(current.getUserTel());        
         return sum;
     }
     
     //当前用户守护项目总数
     public int MyGuardSum(){
-        int sum;
+        int sum = getGuardFacade().countByUserTel(current.getUserTel());        
         return sum;
     }
     
     //当前用户资助项目总数
-    public int MyInvestProject(){
-        int sum;
+    public int MyInvestSum(){
+        int sum = getInvestFacade().countByUserTel(current.getUserTel());        
         return sum;
     }
     
     //当前用户守护的项目
     public List<GuardProj> MyGurad(){
-        List<GuardProj> myGuard;
-        Query query = getGuardFacade().getEntityManager().createNamedQuery("GuardProj.findByUserTel").setParameter("userTel", current.getUserTel());
-        myGuard = query.getResultList();
+        List<GuardProj> myGuard = getGuardFacade().findByUserTel(current.getUserTel());        
         return myGuard;
     }
     
     //当前用户资助过的项目
     public List<InvesteProj> MyInvest(){
-        List<InvesteProj> myInvest;
-        Query query = getInvestFacade().getEntityManager().createNamedQuery("InvesteProj.findByUserTel").setParameter("userTel", current.getUserTel());
-        myInvest =query.getResultList();
-        return myInvest;
+       List<InvesteProj> myInvest = getInvestFacade().findByUserTel(current.getUserTel());        
+       return myInvest;
     }
     
     //当前用户申请过的项目
     public List<Project> MyProject(){
-        List<Project> myProject;
-        Query query = getProjFacade().getEntityManager().createNamedQuery("Project.findByUserTel").setParameter("userTel", current.getUserTel());
-        myProject = query.getResultList();
+        List<Project> myProject = getProjFacade().findByUserTel(current.getUserTel());        
         return myProject;
     }
     

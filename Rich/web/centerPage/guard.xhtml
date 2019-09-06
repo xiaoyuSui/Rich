@@ -5,12 +5,64 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+>
     <head>
-        <title>TODO supply a title</title>
+        <title>个人中心</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+    <h:body>
+        <h:panelGrid columns="8">
+
+        </h:panelGrid>
+        
+        <table>
+            
+        </table>
+        <h:form>
+            <h:dataTable value="1" style="width: 800px">
+                <c:forEach items="#{guardProjController.guardHeader}" var="phead">
+                       <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{phead}"/>
+                            </f:facet>
+                        </h:column>
+            </c:forEach>            
+        </h:dataTable>
+    </h:form>
+        
+        <h:form>
+            
+            <h:dataTable value="#{AllController.MyGurad()}" var="item" style="width: 800px;">                  
+                <h:column>
+                    #{item.projId},
+                </h:column>
+                <h:column>
+                    #{item.projName}
+                </h:column>
+                <h:column>
+                    #{item.applicantName}
+                </h:column>
+                <h:column>
+                    #{item.applDate}
+                </h:column>
+                <h:column>
+                    #{item.projCatelog}
+                </h:column>
+                <h:column>
+                    #{item.projClass}
+                </h:column>
+                <h:column>
+                   "http://"+"#{item.projId}"
+                </h:column>
+                
+            </h:dataTable>
+            
+        </h:form>
+      
+    </h:body>
 </html>

@@ -4,6 +4,8 @@ import Entity.util.JsfUtil;
 import Entity.util.PaginationHelper;
 
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -26,8 +28,35 @@ public class GuardProjController implements Serializable {
     private Entity.GuardProjFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
+    
+    private List<GuardProj> projectList;
+    private List<String> guard_header;
+    
+    public void setProjectList(){
+        
+    }
+    
+    public List<GuardProj> getProjectList(){
+        projectList = this.getFacade().findAll();
+        return projectList;
+    }
+    
+    public List<String> getGuardHeader() {
+	return guard_header;
+    }
+
+    public void setGuardHeader(List<String> header) {
+            this.guard_header = header;
+    }
+    
+    
+    private void initData(){
+        guard_header = Arrays.asList(new String[]{"ID","名称","申请人","申请时间","门类","部类","url"});
+    }
+    
 
     public GuardProjController() {
+        initData();
     }
 
     public GuardProj getSelected() {

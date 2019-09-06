@@ -44,8 +44,7 @@ public class InvesteProjController implements Serializable {
     
     
     public List<String> getInvestHeader() {
-        System.out.print("我在这我在这！！！！！！！！！！！快看我！！！！！!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-		return invest_header;
+	return invest_header;
 	}
 
     public void setInvestHeader(List<String> header) {
@@ -55,18 +54,6 @@ public class InvesteProjController implements Serializable {
     private void initData(){
         
         invest_header = Arrays.asList(new String[]{"ID","名称","申请人","申请时间","门类","部类","金额","url"});
-        /**keyMap = new HashMap<String,Object>(){
-            {
-                put("ID","proj_id");
-                put("名称","proj_name");
-                put("申请人","applicant_name");
-                put("申请时间","appl_date");
-                put("门类","proj_catelog");
-                put("部类","proj_class");
-                //put("状态","condition");           
-            }
-     };*/
-       System.out.print("我在这我在这！！！！！！！！！！！快看我！！！！！");
     }
     
     public InvesteProjController() {

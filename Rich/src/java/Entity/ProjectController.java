@@ -31,7 +31,20 @@ public class ProjectController implements Serializable {
     private int selectedItemIndex;
     
     private List<Project> projectList;
-    private List<String> project_header,invest_header,guard_header;
+    private List<String> project_header;
+    
+    //连接list界面
+    private int kind=0;
+    
+    public int getKind(){
+        return kind;
+    }
+    
+    public void setKind(int kind_){
+        //System.out.print("我真的被调用了！！！！！！！！！！！！！！！！！！！！1");
+        kind = kind_;
+        
+    }
     
     public void setProjectList(){
         
@@ -43,53 +56,19 @@ public class ProjectController implements Serializable {
     }
 
     public ProjectController(){
-         System.out.print("我在这我在这！！！！！！！！！！！快看我！！！！！!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         initData();
     }
     
     public List<String> getProjectHeader() {
-        System.out.print("我在这我在这！！！！！！！！！！！快看我！！！！！!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-		return project_header;
+	return project_header;
 	}
 
     public void setProjectHeader(List<String> header) {
-            this.project_header = header;
-    }
-    
-    public List<String> getGuardHeader() {
-        System.out.print("我在这我在这！！！！！！！！！！！快看我！！！！！!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-		return project_header;
-	}
-
-    public void setGuardHeader(List<String> header) {
-            this.project_header = header;
-    }
-    
-    public List<String> getInvestHeader() {
-        System.out.print("我在这我在这！！！！！！！！！！！快看我！！！！！!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-		return project_header;
-	}
-
-    public void setInvestHeader(List<String> header) {
-            this.project_header = header;
+        this.project_header = header;
     }
     
     private void initData(){
         project_header = Arrays.asList(new String[]{"ID","名称","申请人","申请时间","门类","部类","url"});
-        invest_header = Arrays.asList(new String[]{"ID","名称","申请人","申请时间","门类","部类","金额","url"});
-        guard_header = Arrays.asList(new String[]{"ID","名称","申请人","申请时间","门类","部类","url"});
-        /**keyMap = new HashMap<String,Object>(){
-            {
-                put("ID","proj_id");
-                put("名称","proj_name");
-                put("申请人","applicant_name");
-                put("申请时间","appl_date");
-                put("门类","proj_catelog");
-                put("部类","proj_class");
-                //put("状态","condition");           
-            }
-     };*/
-       System.out.print("我在这我在这！！！！！！！！！！！快看我！！！！！");
     }
     
     public Project getSelected() {

@@ -17,6 +17,10 @@ and open the template in the editor.
         <style>
             column{
                 color: white;
+                widows: 50px;
+            }
+            .outp{
+                color: white;
             }
         </style>
     </head>
@@ -25,9 +29,8 @@ and open the template in the editor.
 
         </h:panelGrid>
         
-        <table>
-            
-        </table>
+        
+        
         <h:form>
             <h:dataTable value="1" style="width: 800px">
                 <c:forEach items="#{projectController.projectHeader}" var="phead">
@@ -42,27 +45,29 @@ and open the template in the editor.
         
         <h:form>
             
-            <h:dataTable value="#{projectController.projectList}" var="item" style="width: 800px; color: white">                  
+            <h:dataTable value="#{projectController.projectList}" var="item" border="0" cellpadding="20" cellspacing="0"
+                         rowClasses="jsfcrud_odd_row,jsfcrud_even_row" headerClass="t_head" rules="all"
+                         style="width: 100%;border-collapse: collapse;">                  
                 <h:column>
-                    #{item.projId},
+                    <h:outputText value="#{item.projId}" style="color:white;"/>
                 </h:column>
                 <h:column>
-                    #{item.projName}
+                    <h:outputText value="#{item.projName}" style="color:white;"/>
                 </h:column>
                 <h:column>
-                    #{item.applicantName}
+                    <h:outputText value="#{item.applicantName}" style="color:white;"/>
                 </h:column>
                 <h:column>
-                    #{item.applDate}
+                    <h:outputText value="#{item.applDate}" style="color:white;"/>
                 </h:column>
                 <h:column>
-                    #{item.projCatelog}
+                    <h:outputText value="#{item.projCatelog}" style="color:white;"/>
                 </h:column>
                 <h:column>
-                    #{item.projClass}
+                    <h:outputText value="#{item.projClass}" style="color:white;"/>
                 </h:column>
                 <h:column>
-                   "http://"+"#{item.projId}"
+                   <h:outputText value="#http://#{item.projId}" style="color:white;"/>
                 </h:column>
                 
             </h:dataTable>

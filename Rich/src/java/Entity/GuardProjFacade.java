@@ -5,9 +5,11 @@
  */
 package Entity;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -26,6 +28,16 @@ public class GuardProjFacade extends AbstractFacade<GuardProj> {
 
     public GuardProjFacade() {
         super(GuardProj.class);
+    }
+    
+    public List<GuardProj> findByUserTel(String tel){
+        Query query = em.createNamedQuery("GuardProj.findByUserTel").setParameter("userTel", tel);
+        return query.getResultList();
+    }
+    
+    public int countByUserTel(String tel){
+        Query query = em.createNamedQuery("GuardProj.countByUserTel").setParameter("userTel", tel);
+        return ((Long)query.getSingleResult()).intValue();
     }
     
 }
