@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>提交项目</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body style="background-image: url(resources/images/back2.jpg);background-size: 100%">
+
+        <h:form>
+            <p:panel id="panel" class="login-panel" style="text-align:center;background-color: transparent;border: 0px;margin-top: 100px">
+                <p:outputLabel value="提交项目" class="pro-output" style="margin-left: -150px;font-size: 18px;color:white"/>
+                <h:panelGrid columns="1">
+                    <p:inputText id="applicantName" value="#{AllController.applicantName}" required="true" maxlength="20" placeholder="输入用户姓名" requiredMessage="请输入用户姓名"
+                                 style="margin-left: 575px;margin-top: 20px" />
+                    <p:inputText id="applicantIDcard" value="#{AllController.applicantIDcard}" required="true" maxlength="20" placeholder="输入用户身份证号" requiredMessage="请输入用户身份证号"
+                                 style="margin-left: 575px;margin-top: 20px"/>
+                    <p:inputText id="applicantMail" value="#{AllController.applicantMail}" required="true" maxlength="20" placeholder="输入用户邮箱" requiredMessage="请输入用户邮箱"
+                                 style="margin-left: 575px;margin-top: 20px"/>
+                    <!--p:inputText id="projCatelog" value="#{AllController.projCatelog}" required="true" maxlength="20" placeholder="输入项目门类" requiredMessage="请输入项目门类"/>
+                    <p:inputText id="projClass" value="#{AllController.projClass}" required="true" maxlength="20" placeholder="输入项目部类" requiredMessage="请输入项目部类"/-->
+                    <p:inputText id="projName" value="#{AllController.projName}" required="true" maxlength="20" placeholder="输入项目名称" requiredMessage="请输入项目名称"
+                                 style="margin-left: 575px;margin-top: 20px"/>
+                    <p:inputText id="projProvince" value="#{AllController.projProvince}" required="true" maxlength="20" placeholder="输入项目所在省份" requiredMessage="请输入项目所在省份"
+                                 style="margin-left: 575px;margin-top: 20px"/>
+                    <p:inputText id="projCity" value="#{AllController.projCity}" required="true" maxlength="20" placeholder="输入项目所在城市" requiredMessage="请输入项目所在城市"
+                                 style="margin-left: 575px;margin-top: 20px"/>
+                    <p:inputText id="projRegion" value="#{AllController.projRegion}" required="true" maxlength="20" placeholder="输入项目所在地区" requiredMessage="请输入项目所在地区"
+                                 style="margin-left: 575px;margin-top: 20px"/>
+                    <p:inputText id="projAddr" value="#{AllController.projAddr}" required="true" maxlength="20" placeholder="输入项目地址" requiredMessage="请输入项目地址"
+                                 style="margin-left: 575px;margin-top: 20px"/>
+
+                </h:panelGrid>
+                <p:commandButton value="提交项目" update="panel" class="pro-btn" action="#{AllController.creartPro}" style="margin-left:-140px;margin-top: 20px"/>
+            </p:panel>
+        </h:form>
+    </h:body>
+</html>

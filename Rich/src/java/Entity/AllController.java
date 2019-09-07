@@ -20,23 +20,23 @@ import javax.inject.Named;
  *
  * @author 17119
  */
-
 @Named("AllController")
 @SessionScoped
-public class AllController implements Serializable{
+public class AllController implements Serializable {
+
     @EJB
-    private Entity.ProjectFacade projFacade;    
+    private Entity.ProjectFacade projFacade;
     @EJB
-    private Entity.InvesteProjFacade investFacade;    
+    private Entity.InvesteProjFacade investFacade;
     @EJB
-    private Entity.UserFacade userFacade;   
+    private Entity.UserFacade userFacade;
     @EJB
     private Entity.GuardProjFacade guardFacade;
-    
+
     //用于存放当前登录的用户数据
     private User current = null;
     //当前请求详情的项目
-    private Project detail= null;
+    private Project detail = null;
     //登录数据
     private User tempUser;
     //注册数据
@@ -51,12 +51,28 @@ public class AllController implements Serializable{
     //地区
     private List<SelectItem> provItems = null;
 
+    /*tangkexin*/
+    //input绑定
+    private String userName;
+    private String userTel;
+    private String userPsw;
+    private String applicantName;
+    private String applicantIDcard;
+    private String applicantMail;
+    //private Date applDate;  获取当前时间
+    private String projCatelog;
+    private String projClass;
+    private String projName;
+    private String projProvince;
+    private String projCity;
+    private String projRegion;
+    private String projAddr;
 
-        public AllController(){
+    public AllController() {
         System.out.print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1");
-        current = new User("13671021552","wqm","password"); 
-        detail=new Project();
-        Date date=new Date(2009,4,2);
+        current = new User("13671021552", "wqm", "password");
+        detail = new Project();
+        Date date = new Date(2009, 4, 2);
         //测试数据
         detail.setProjName("脆皮鸭文学");
         detail.setProjId(1);
@@ -66,44 +82,57 @@ public class AllController implements Serializable{
         detail.setApplicantName("隋小雨");
         detail.setApplicantMail("13611393447@163.com");
         detail.setProjAddr("北京邮电大学");
-        detail.setProjDepict("布洛陀是壮族先民口头文学中的神话人物，是创世神、始祖神和道德神。《布洛陀》是壮族的长篇诗体创世神话，主要记述布洛陀开天辟地、创造人类的丰功伟绩，自古以来以口头方式在广西壮族自治区田阳县一带传承。大约从明代起，在口头传唱的同时，也以古壮字书写的形式保存下来，其中有一部分变成壮族民间麽教的经文。\n" +
-"　　《布洛陀》的内容包括布洛陀创造天地、造人、造万物、造土皇帝、造文字历书和造伦理道德六个方面，反映了人类从茹毛饮血的蒙昧时代走向农耕时代的历史，以及壮族先民氏族部落社会的情况，在历史学、文学、宗教学、古文字学、音韵学和音乐学研究等方面有一定的学术价值。\n" +
-"　　布洛陀口传诗体创世神话在内容上具有原生性特点，在漫长的口头传承过程中，经过一代代的不断加工和锤炼，艺术性也得到了完善和提高。它不仅可以帮助人们认识历史、满足人们的生活需求，还具有教化的作用。\n" +
-"　　由于历史及其他各种原因，今天《布洛陀》已面临失传的危机，需要采取普查、建档、研究、出版等手段，并通过建立布洛陀文化生态保护村、唱诵队、传习馆以及在相关学校开办传习班等方式加以保护，使其能在现代化社会条件下继续得到传承。");
-    }
-        
-//--------------------------------------------------------------------tkx----------------------------------------------------------------------------------
-    public String creartPro(){
-        tempro = new Project();
-        getProjFacade().create(tempro);
-        return "/log_in.xhtml";//注册成功之后跳转到个人中心
+        detail.setProjDepict("布洛陀是壮族先民口头文学中的神话人物，是创世神、始祖神和道德神。《布洛陀》是壮族的长篇诗体创世神话，主要记述布洛陀开天辟地、创造人类的丰功伟绩，自古以来以口头方式在广西壮族自治区田阳县一带传承。大约从明代起，在口头传唱的同时，也以古壮字书写的形式保存下来，其中有一部分变成壮族民间麽教的经文。\n"
+                + "　　《布洛陀》的内容包括布洛陀创造天地、造人、造万物、造土皇帝、造文字历书和造伦理道德六个方面，反映了人类从茹毛饮血的蒙昧时代走向农耕时代的历史，以及壮族先民氏族部落社会的情况，在历史学、文学、宗教学、古文字学、音韵学和音乐学研究等方面有一定的学术价值。\n"
+                + "　　布洛陀口传诗体创世神话在内容上具有原生性特点，在漫长的口头传承过程中，经过一代代的不断加工和锤炼，艺术性也得到了完善和提高。它不仅可以帮助人们认识历史、满足人们的生活需求，还具有教化的作用。\n"
+                + "　　由于历史及其他各种原因，今天《布洛陀》已面临失传的危机，需要采取普查、建档、研究、出版等手段，并通过建立布洛陀文化生态保护村、唱诵队、传习馆以及在相关学校开办传习班等方式加以保护，使其能在现代化社会条件下继续得到传承。");
     }
 
-    public String logUp(){
-        tempUser = new User();
-        if(getUserFacade().checklogup(tempUser.getUserTel()) != null){
+//--------------------------------------------------------------------tkx----------------------------------------------------------------------------------
+    public String logUp() {
+        if (getUserFacade().checklogup(userTel) != null) {
             //弹出手机号已注册，转到登录界面
-        }else{
-        getUserFacade().create(tempUser);
+        } else {
+            User u = new User();
+            u.setUserName(userName);
+            u.setUserPsw(userPsw);
+            u.setUserTel(userTel);
+            getUserFacade().create(u);
         }
         return "/log_in.xhtml"; //注册成功返回登陆界面
     }
-    public String logIn(){
-        if(tempUser.getUserTel().equals("00000000000")&&tempUser.getUserPsw().equals("000000")){
-            return "/manager.xhtml";
-        }
-        else if(getUserFacade().checkLogin(tempUser.getUserTel(), tempUser.getUserPsw())==null){
-            if(getUserFacade().checklogup(tempUser.getUserTel()) == null){
+
+    public String logIn() {
+        if (userTel.equals("00000000000") && userPsw.equals("000000")) {
+            return "manager.xhtml";     //管理员识别
+        } else if (getUserFacade().checkLogin(userName, userTel) == null) {
+            if (getUserFacade().checklogup(userTel) == null) {
                 return "log_up.xhtml";  //手机号未注册，转至注册页面
+            } else {
+                return "index.xhtml";  //密码错误
             }
-            else{
-            return "log_in.xhtml";  //密码错误
-                    }
         }
-        current.setUserName(tempUser.getUserName());
-        current.setUserPsw(tempUser.getUserPsw());
-        current.setUserTel(tempUser.getUserTel());
+        current.setUserName(userName);
+        current.setUserPsw(userPsw);
+        current.setUserTel(userTel);
         return "/index.xhtml"; //登陆成功返回首页
+    }
+
+     public String creartPro(){
+       tempro = new Project();
+       tempro.setApplDate(new Date());
+       tempro.setApplicantIDcard(applicantIDcard);
+       tempro.setApplicantMail(applicantMail);
+       tempro.setProjAddr(projAddr);
+       tempro.setProjCatelog(projCatelog);
+       tempro.setApplicantName(applicantName);
+       tempro.setProjCity(projCity);
+       tempro.setProjClass(projClass);
+       tempro.setProjName(projName);
+       tempro.setProjProvince(projProvince);
+       tempro.setProjRegion(projRegion);
+       getProjFacade().create(tempro);
+        return "center.xhtml";//注册成功之后跳转到个人中心
     }
 
     public User getTempUser() {
@@ -182,7 +211,7 @@ public class AllController implements Serializable{
     //当前用户申请项目总数
     public int getMyProjectSum(){
        int sum = getProjFacade().countByUserTel(current.getUserTel());        
-        return sum;
+       return sum;
     }
     
     //当前用户守护项目总数
@@ -337,6 +366,111 @@ public class AllController implements Serializable{
     private GuardProjFacade getGuardFacade() {
         return guardFacade;
     }
-        
+/*tangkexin*/        
+//get/set函数
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setUserPsw(String userPsw) {
+        this.userPsw = userPsw;
+    }
+    
+
+    public String getUserPsw() {
+        return userPsw;
+    }
+
+
+    public String getUserTel() {
+        return userTel;
+    }
+
+    public void setUserTel(String userTel) {
+        this.userTel = userTel;
+    }
+public String getApplicantIDcard() {
+        return applicantIDcard;
+    }
+
+    public void setApplicantIDcard(String applicantIDcard) {
+        this.applicantIDcard = applicantIDcard;
+    }
+
+    public String getApplicantMail() {
+        return applicantMail;
+    }
+
+    public void setApplicantMail(String applicantMail) {
+        this.applicantMail = applicantMail;
+    }
+
+    public String getApplicantName() {
+        return applicantName;
+    }
+
+    public void setApplicantName(String applicantName) {
+        this.applicantName = applicantName;
+    }
+
+    public String getProjAddr() {
+        return projAddr;
+    }
+
+    public void setProjAddr(String projAddr) {
+        this.projAddr = projAddr;
+    }
+
+    public void setProjCatelog(String projCatelog) {
+        this.projCatelog = projCatelog;
+    }
+
+    public String getProjCatelog() {
+        return projCatelog;
+    }
+
+    public void setProjCity(String projCity) {
+        this.projCity = projCity;
+    }
+
+    public String getProjCity() {
+        return projCity;
+    }
+
+    public String getProjClass() {
+        return projClass;
+    }
+
+    public void setProjClass(String projClass) {
+        this.projClass = projClass;
+    }
+
+    public String getProjName() {
+        return projName;
+    }
+
+    public void setProjName(String projName) {
+        this.projName = projName;
+    }
+
+    public String getProjProvince() {
+        return projProvince;
+    }
+
+    public void setProjProvince(String projProvince) {
+        this.projProvince = projProvince;
+    }
+
+    public void setProjRegion(String projRegion) {
+        this.projRegion = projRegion;
+    }
+
+    public String getProjRegion() {
+        return projRegion;
+    }
 
 }

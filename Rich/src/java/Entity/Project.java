@@ -52,7 +52,7 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Project.findByProjCity", query = "SELECT p FROM Project p WHERE p.projCity = :projCity")
     , @NamedQuery(name = "Project.findByUserTel", query = "SELECT p FROM Project p WHERE p.userTel.userTel = :userTel")
     , @NamedQuery(name = "Project.findByProjRegion", query = "SELECT p FROM Project p WHERE p.projRegion = :projRegion")
-    , @NamedQuery(name = "Project.CountByUserTel", query = "SELECT COUNT(p.projId) FROM Project p WHERE p.userTel.userTel = :userTel")})
+    , @NamedQuery(name = "Project.countByUserTel", query = "SELECT COUNT(p.projId) FROM Project p WHERE p.userTel.userTel = :userTel")})
 
 public class Project implements Serializable {
 

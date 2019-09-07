@@ -29,9 +29,9 @@ and open the template in the editor.
             <p:panel id="panel" class="logup-panel">
             <p:outputLabel value="注册" class="logup-output"/>
             <h:panelGrid columns="1">
-                <p:inputText id="userTel" value="#{AllController.tempUser.userTel}" required="true" maxlength="20" placeholder="输入手机号" requiredMessage="请输入手机号"/>
-                <p:inputText id="userName" value="#{AllController.tempUser.userName}" required="true" maxlength="20" placeholder="输入用户名" requiredMessage="请输入用户名"/>
-                <p:password id="userPsw" value="#{AllController.tempUser.userPsw}" required="true" maxlength="20" placeholder="输入密码" requiredMessage="请输入密码"/>
+                <p:inputText id="userTel" value="#{AllController.userTel}" required="true" maxlength="20" placeholder="输入手机号" requiredMessage="请输入手机号"/>
+                <p:inputText id="userName" value="#{AllController.userName}" required="true" maxlength="20" placeholder="输入用户名" requiredMessage="请输入用户名"/>
+                <p:password id="userPsw" value="#{AllController.userPsw}" required="true" maxlength="20" placeholder="输入密码" requiredMessage="请输入密码"/>
             </h:panelGrid>
                 <p:commandButton value="注册" update="panel" class="logup-btn" action="#{AllController.logUp()}"
                                  />

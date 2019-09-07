@@ -10,89 +10,83 @@
             <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
                         
             <style>
-                .back{
-                    background-image: url(resources/images/sxy/background.png)
-                }
-                .icon{
-                    widh:50px;
-                    height:50px;
+                
+               .icon{
+                    width: 50px;
+                    height: 50px;
                     margin-top: 13px;
-                    margin-left: 70px;
+                    margin-left: 60px;
                 }
                 .title1{
-                    width:1519.2px;
+                    width:1600px;
                     height:76px;
-                    background-color: white;
                     display:flex;
                     flex-direction:row;
+                    background-color: rgba(51,51,51,0.5);
                 }
                 .text{
                     line-height: 76px;
-                    font-family: FZYaoti;
+                    font-family: "楷体","楷体_GB2312";
                     font-size: 14px;
-                    color: #333;
+                    color: white;
                     text-decoration: none;
                 }
                 .name{
                     line-height: 76px;
                     font-family: FZYaoti;
-                    font-size: 14px;
-                    color: #333;
+                    font-size: 16px;
+                    color: white;
                     text-decoration: none;
-                    margin-left: 20px;
+                    margin-left: 30px;
                     margin-right: 1000px;
+                    font-family: "楷体","楷体_GB2312";  
                 }
                 .title2{
-                    width:1519.2px;
+                    width:1600px;
                     height:54px;
-                    background-color: white;
                     display:flex;
                     flex-direction:row;
                     margin-top: 2px;
+                    background-color: rgba(51,51,51,0.5)
                 }
+
                 .tab{
                     line-height: 54px;
                     margin-left: 200px;
                     margin-right: 50px;
-                    font-family: FZYaoti;
+                    font-family: "楷体","楷体_GB2312";
                     text-align:center;
                     text-decoration: none;
-                    color: #333;
+                    color:white;
                     font-size: 20px;
+
                 }
             </style>
             
         </h:head>
 
-        <h:body class="back">
-            <div class="title1">
-                <img class="icon" src="resources/images/sxy/icon.png" />
-            <h:form>
-              <h:commandLink class="name" value="中国传统技艺" action="index" target = "_top"/>
-              <h:commandLink class="text" value="登陆|注册" action="login" target = "_top"/>
-            </h:form>
-                
+        <h:body>
+        
+            <div style="position: absolute; left: 0px;">
+                <div class="title1">
+                    <img class="icon" src="resources/images/sxy/icon.png" />
+                    <h:form>
+                      <h:commandLink class="name" value="中国传统技艺·中国传统技艺电子博物馆" action="index" target = "_top"/>
+                      <h:commandLink class="text" value="项目申请" action = "CreatePro"/>
+                    </h:form>
+                </div>
+
+                <div class="title2">
+                    <h:form>
+                        <h:body class="tab"></h:body>
+                        <h:commandLink class="tab" value="首页" action="index" target = "_top"/>
+                        <h:commandLink class="tab" value="机构" action="institution" target = "_top"/>
+                        <h:commandLink class="tab" value="清单" action="list" target = "_top"/>
+                        <h:commandLink class="tab" value="百科" action="introduce" target = "_top"/>
+                        <h:commandLink class="tab" value="资源" action="ziyuan" target = "_top"/>
+                    </h:form>
+                </div>
             </div>
-            <div class="title2">
-                
-                <h:form>
-                    <h:body class="tab"></h:body>
-                    <h:commandLink class="tab" value="首页" action="index" target = "_top"/>
-                    <h:commandLink class="tab" value="机构" action="institution" target = "_top"/>
-                    <h:commandLink class="tab" value="清单" action="list" target = "_top"/>
-                    <h:commandLink class="tab" value="百科" action="introduce" target = "_top"/>
-                    <h:commandLink class="tab" value="资源" action="ziyuan" target = "_top"/>
-                </h:form>
-            </div>
-             
-            
-              
-           
-              
-                    
-                
-                
-      
 
         </h:body>
 

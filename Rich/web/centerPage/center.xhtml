@@ -27,41 +27,17 @@ and open the template in the editor.
     <h:body>
 
         <h:form>
-            <h:dataTable value="1" style="width: 800px">
-                <c:forEach items="#{projectController.projectHeader}" var="phead">
-                       <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{phead}" style="color:white;"/>
-                            </f:facet>
-                        </h:column>
-            </c:forEach>            
-        </h:dataTable>
-        </h:form>
-        
-        <h:form>
+            <h:panelGrid columns="3">
+                <h:column>我的项目</h:column>
+                <h:column>我的守护</h:column>
+                <h:column>我的捐赠</h:column>
+            </h:panelGrid>
             
-            <h:dataTable value="#{a}" var="item" border="0" cellpadding="20" cellspacing="0"
-                         rowClasses="jsfcrud_odd_row,jsfcrud_even_row" headerClass="t_head" rules="all"
-                         style="width: 100%;border-collapse: collapse;">                  
-                <h:column>
-                    <h:outputText value="#{item.projName}" style="color:white;"/>
-                </h:column>
-                <h:column>
-                    <h:outputText value="#{item.applicantName}" style="color:white;"/>
-                </h:column>
-                <h:column>
-                    <h:outputText value="#{item.applDate}" style="color:white;"/>
-                </h:column>
-                <h:column>
-                    <h:outputText value="#{item.projCatelog}" style="color:white;"/>
-                </h:column>
-                <h:column>
-                    <h:outputText value="#{item.projClass}" style="color:white;"/>
-                </h:column>
-                <h:column>
-                   <h:outputText value="#http://#{item.projId}" style="color:white;"/>
-                </h:column>
-            </h:dataTable>
+            <h:panelGrid columns="3">
+                <h:column>#{AllController.getMyProjectSum()}</h:column>
+                <h:column>#{AllController.getMyGuardSum()}</h:column>
+                <h:column>#{AllController.getMyInvestSum()}</h:column>
+            </h:panelGrid>
             
         </h:form>
       
