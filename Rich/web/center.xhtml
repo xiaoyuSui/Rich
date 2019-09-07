@@ -4,6 +4,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
 <!--
     <h:head>
         <title>个人中心</title>
@@ -19,16 +20,28 @@
         <iframe  MARGINWIDTH="0" MARGINHEIGHT="0" HSPACE="0" VSPACE="0" FRAMEBORDER="0" SCROLLING="no" src="head.xhtml" width="100%"  height="auto"/>
     </h:head>
 
-<h:body style="background-image: url(resources/images/class/bg2.png); background-size: auto;">
+    <h:body style="background-image: url(resources/images/class/bg6.png); background-size: auto;">
         
-    <div  class="navigation" style="height: 1600px">
-            <ul>
-                <li><a href="centerPage/center.xhtml" target="iframe_a">个人中心</a></li>
-                <li><a href="centerPage/project.xhtml" target="iframe_a">我的项目</a></li>
-                <li><a href="centerPage/invest.xhtml" target="iframe_a">我的投资</a></li>
-                <li><a href="centerPage/guard.xhtml" target="iframe_a">我的守护</a></li>
-            </ul>
+    <h:outputText class="centerTitle" value="个 人 中 心"/>
+    <ul class="navigation">
+        
+        <div class="num-box xtween" style="opacity: 1;">
+            <div class="num-item">
+                <div class="b" data-rn="project">#{AllController.getMyProjectSum()}</div>
+                <a href="centerPage/project.xhtml" target="iframe_a" class="h18">我的项目</a>
+            </div>
+            <div class="num-item">
+                <div class="b" data-rn="guard">#{AllController.getMyGuardSum()}</div>
+               <a href="centerPage/invest.xhtml" target="iframe_a" class="h18">我的捐助</a>
+            </div>	
+            <div class="num-item">
+                <div class="b" data-rn="invest">#{AllController.getMyInvestSum()}</div>
+                <a href="centerPage/guard.xhtml" target="iframe_a" class="h18">我的守护</a>
+            </div>
         </div>
-        <iframe class="detail" src="centerPage/center.xhtml" name="iframe_a" frameborder="no" width="1000px" height="400px"/>
+        
+    </ul>
+    
+    <iframe class="detail" src="centerPage/form.xhtml" name="iframe_a" frameborder="no" width="1900px" height="1500px"/>
     </h:body>
 </html>

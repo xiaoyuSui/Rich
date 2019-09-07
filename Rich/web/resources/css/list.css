@@ -54,7 +54,7 @@ ol, ul, li {
     padding: 0;
     width: 13px;
     height: 30px;
-    background: url(images/list/png27a.png) no-repeat;
+    background: url(../images/list/png27a.png) no-repeat;
     background-position-x: 0%;
     background-position-y: 0%;
 }
@@ -97,7 +97,7 @@ html, body, h1, h2, h3, h4, h5, h6, div, ol, ul, li, dl, dt, dd, table, caption,
     margin: auto;
     width: 32px;
     height: 22px;
-    background: url(images/list/png17.png) no-repeat;
+    background: url(../images/list/png17.png) no-repeat;
     background-position-x: 0%;
     background-position-y: 0%;
 }
@@ -109,7 +109,7 @@ html, body, h1, h2, h3, h4, h5, h6, div, ol, ul, li, dl, dt, dd, table, caption,
     margin: auto;
     width: 32px;
     height: 22px;
-    background: url(images/list/png18.png) no-repeat;
+    background: url(../images/list/png18.png) no-repeat;
     background-position-x: 0%;
     background-position-y: 0%;
 }
@@ -157,8 +157,8 @@ html, body, h1, h2, h3, h4, h5, h6, div, ol, ul, li, dl, dt, dd, table, caption,
     float: left;
     width: 50%;
     height: 100%;
-    background: url(images/list/img88.jpg) center no-repeat;
-    background-image: url("images/list/img88.jpg");
+    background: url(../images/list/img88.jpg) center no-repeat;
+    background-image: url("../images/list/img88.jpg");
     background-size: auto;
     background-size: cover;
 }
@@ -196,7 +196,7 @@ html, body, h1, h2, h3, h4, h5, h6, div, ol, ul, li, dl, dt, dd, table, caption,
     right: 0;
     width: 17px;
     height: 25px;
-    background: url(images/list/png54.png) no-repeat;
+    background: url(../images/list/png54.png) no-repeat;
 }
 .block-mod8 .list-item::after {
     top: 25px;
@@ -233,7 +233,7 @@ a {
     color: inherit;
 }
 .x-header, .x-footer, .x-container {min-width: 1250px;}
-.x-container {background: url(images/list/png14.png);font-family: "微软雅黑";}
+.x-container {background: url(../images/list/png14.png);font-family: "微软雅黑";}
 .x-header, .x-footer, .x-container{ position: relative; width: 100%; min-width: 1250px; margin: auto; z-index: 1;}
 .represen2 {
     padding: 100px 0 50px;
@@ -291,11 +291,11 @@ a {
 }
 .represen2 .screen-mod .select-mod {
     color: #333;
-    width: 206px;
+    width: 160px;
 }
 .screen-mod .select-mod {
     margin-right: 12px;
-    width: 150px;
+    width: 100px;
 }
 .screen-mod .select-mod, .screen-mod .input, .screen-mod .input-mod {
     display: inline-block;
@@ -329,30 +329,30 @@ a {
     background-position: right;
 
 }
-.bp-border::before, .bp-border::after {
+/*.bp-border::before, .bp-border::after {
     content: '';
     position: absolute;
     top: 0;
     bottom: 0;
     width: 10px;
-    background: url(images/list/png23.png) no-repeat;
+    background: url(../images/list/png23.png) no-repeat;
     background-color: rgba(0, 0, 0, 0);
     background-position-x: 0%;
     background-position-y: 0%;
     background-repeat: no-repeat;
     background-attachment: scroll;
-    background-image: url("images/list/png23.png");
+    background-image: url("../images/list/png23.png");
     background-size: auto;
     background-origin: padding-box;
     background-clip: border-box;
-}
+}*/
 .screen-mod .select-btn {
     padding: 10px 25px 10px 5px;
     height: auto;
     line-height: 2;
 }
 .bp-border .bp-inner {
-    background: url(images/list/png25.png) repeat-x;
+    background: url(../images/list/png25.png) repeat-x;
     line-height: 48px;
 }
 .select-mod .select-btn {
@@ -405,7 +405,7 @@ input, button, textarea, select {
     background: none;
     color: inherit;
 }
-.represen2 .select-mod .select-cont::before, .represen2 .select-mod .select-query::before {
+/*.represen2 .select-mod .select-cont::before, .represen2 .select-mod .select-query::before {
     background-size: 100% auto;
     height: 15px;
 }
@@ -419,13 +419,13 @@ input, button, textarea, select {
     right: 0;
     bottom: 0;
     height: 10px;
-    background: url(images/list/png46.png) no-repeat;
+    background: url(../images/list/png46.png) no-repeat;
     background-color: rgba(0, 0, 0, 0);
     background-position-x: 0%;
     background-position-y: 0%;
     background-repeat: no-repeat;
     background-attachment: scroll;
-    background-image: url("images/list/png46.png");
+    background-image: url("../images/list/png46.png");
     background-size: auto;
     background-origin: padding-box;
     background-clip: border-box;
@@ -437,7 +437,7 @@ input, button, textarea, select {
     padding: 15px;
     padding-right: 15px;
     padding-right: 5px;
-}
+}*/
 .mCustomScrollbar {
     -ms-touch-action: pinch-zoom;
     touch-action: pinch-zoom;
@@ -598,7 +598,7 @@ ol, ul, li {
 }
 .bp-border .bp-inner {
 
-    background: url(images/list/png25.png) repeat-x;
+    background: url(../images/list/png25.png) repeat-x;
     line-height: 48px;
 
 }
@@ -644,7 +644,7 @@ input, button, textarea, select {
 .represen2 .screen-mod .select-mod, .represen2 .screen-mod .input, .represen2 .screen-mod .submit {
 
     font-size: 14px;
-    margin-right: 16px;
+    margin-right: 6px;
 
 }
 .screen-mod .submit {
@@ -672,7 +672,7 @@ input, button, textarea, select {
 }
 .bp-border.cur::before, .bp-border.cur::after, a.bp-border:hover::before, a.bp-border:hover::after {
 
-    background-image: url(images/list/png24.png);
+    background-image: url(../images/list/png24.png);
 
 }
 .bp-border::before {
@@ -688,13 +688,13 @@ input, button, textarea, select {
 }
 .bp-border.cur .bp-inner, a.bp-border:hover .bp-inner {
 
-    background-image: url(images/list/png26.png);
+    background-image: url(../images/list/png26.png);
 
 }
 .bp-border .bp-inner {
 
-    background: url(images/list/png25.png) repeat-x;
-    background-image: url("images/list/png25.png");
+    background: url(../images/list/png25.png) repeat-x;
+    background-image: url("../images/list/png25.png");
     line-height: 48px;
 
 }
@@ -740,6 +740,7 @@ input, button, textarea, select {
 
 }
 /* 下拉选框 */
+/*
 .select-mod{ position: relative; text-align: left;}
 .select-mod .select-bar{ position: relative;}
 .select-mod .select-btn{ position: relative; height: 21px; padding: 5px 50px 5px 15px; overflow: hidden; cursor: pointer;}
@@ -764,7 +765,7 @@ input, button, textarea, select {
 .select-mod .select-grp.open .select-box{ display: block;}
 .select-mod.sc-show .select-btn:after{ content: '\e823';}
 .select-mod.sc-show .select-cont, .select-mod.sq-show .select-query{ opacity: 1; visibility: visible;}
-.select-mod.sc-show .bp-border::before, .select-mod.sc-show .bp-border::after{ background-image: url(images/list/png45.png);}
+.select-mod.sc-show .bp-border::before, .select-mod.sc-show .bp-border::after{ background-image: url(../images/list/png45.png);}
 .select-mod .select-bar:hover{ color: #909090;}
 .select-mod .select-query{}
 .select-mod .select-query:before{}
@@ -774,10 +775,48 @@ input, button, textarea, select {
 .represen2 .select-mod .select-cont, .represen2 .select-mod .select-query {background-size: 100% auto;}
 .represen2 .select-mod .select-cont:before, .represen2 .select-mod .select-query:before {background-size: 100% auto;height: 15px;}
 .represen2 .screen-mod .select-mod,.represen2 .screen-mod .input,.represen2 .screen-mod .submit{ font-size:14px; margin-right:16px; }
-
+*/
 .screen-mod .select-bar {
     display: block;
 }
 .select-mod .select-bar {
     position: relative;
+}
+.x-tables {
+    margin-bottom: 50px;
+    background: url(../images/list/inherit_xx1.jpg) no-repeat;
+}
+.x-tables table th {
+    font-size: 16px;
+    color: #fff;
+    font-weight: normal;
+    line-height: 68px;
+}
+.t_head{
+    margin-bottom: 50px;
+}
+a {
+    color: #9da4ac;
+}
+td {
+    vertical-align: top;
+    padding-bottom: 8px;
+    font-size: small;
+}
+tr.jsfcrud_odd_row {
+    /*background-color: #fefeff;
+    color: #4e6a71;*/
+}
+
+form.jsfcrud_list_form td, td td {
+    font-size: 14px;
+    color: #333;
+    padding: 23px 0;
+    text-align: center;
+    border-bottom: 1px dashed #b5b5b5;
+}
+
+tr.jsfcrud_even_row {
+   /* background-color: #eff5fa;
+    color: #4e6a71;*/
 }

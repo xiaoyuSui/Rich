@@ -16,7 +16,7 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="resources/css/log_in.css"/>
         
     </h:head>
-    <h:body style="background-image: url(resources/images/background.jpg);background-size: 100%">
+    <h:body style="background-image: url(resources/images/back3.png);background-size: 100%">
         <div id="wrapper">
             <nav class="switch_nav" >
                 <a href="log_up.xhtml" id="switch_signup" class="switch_btn">注册</a>
@@ -25,14 +25,20 @@ and open the template in the editor.
             </nav>
         </div>
         <h:form>
-            <p:panel id="panel"> 
-                <h:panelGrid columns="1" class="group_input">
-                    <p:inputText id="userTel"  value="#{AllController.userTel}" required="true" maxlength="20" placeholder="输入手机号" requiredMessage="请输入手机号"/>
+            <p:panel id="panel" style="text-align:center;background-color: transparent;border: 0px;margin-top: 0px"> 
+                <h:panelGrid columns="1" class="group_input" style="text-align: center">
+                    <p:inputText id="userTel"  value="#{AllController.userTel}" required="true" maxlength="20" placeholder="输入手机号" requiredMessage="请输入手机号"
+                                 style="margin-left: 640px;background: transparent;text-align: center"/>
         
-                    <p:password id="userPsw"  value="#{AllController.userPsw}" required="true" maxlength="20" placeholder="输入密码" requiredMessage="请输入密码"/>
+                    <p:password id="userPsw"  value="#{AllController.userPsw}" required="true" maxlength="20" placeholder="输入密码" requiredMessage="请输入密码"
+                                style="margin-left: 640px;background: transparent;text-align: center;margin-top:10px"/>
                 </h:panelGrid>
-                <p:commandButton value="登录" update="panel" class="login-btn" action="#{AllController.logIn}" />
+                <p:commandButton value="登录" update="panel" class="login-btn" action="#{AllController.logIn}" style="margin-left:0px;margin-top: 50px;background-image: url(resources/images/button2.jpg);background-size: 100%" /> 
+                <h:commandLink class="tab" value="忘记密码" action="forget"/>
+                <p:messages id="message" class="login-message" showDetail="false" showIcon="false" style="  background-color: transparent; border: 0px;margin-left: auto;
+                            margin-right: auto;width:100px"/> 
             </p:panel>
         </h:form>
+        
     </h:body>
 </html>

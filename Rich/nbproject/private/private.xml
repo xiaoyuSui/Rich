@@ -3,10 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Rich/Rich/web/CreatePro.xhtml</file>
-            <file>file:/C:/Rich/Rich/web/log_up.xhtml</file>
-            <file>file:/C:/Rich/Rich/web/log_in.xhtml</file>
+            <file>file:/C:/Rich/Rich/src/java/Entity/InvesteProjFacade.java</file>
+            <file>file:/C:/Rich/Rich/web/detail.xhtml</file>
+            <file>file:/C:/Rich/Rich/web/list.xhtml</file>
+            <file>file:/C:/Rich/Rich/web/centerPage/guard.xhtml</file>
+            <file>file:/C:/Rich/Rich/web/resources/css/form.css</file>
+            <file>file:/C:/Rich/Rich/web/resources/css/detail.css</file>
             <file>file:/C:/Rich/Rich/web/resources/css/personal.css</file>
+            <file>file:/C:/Rich/Rich/web/resources/css/list.css</file>
+            <file>file:/C:/Rich/Rich/web/resources/css/log_in.css</file>
             <file>file:/C:/Rich/Rich/src/java/Entity/AllController.java</file>
         </group>
     </open-files>

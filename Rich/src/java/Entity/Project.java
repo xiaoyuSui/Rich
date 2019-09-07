@@ -7,7 +7,6 @@ package Entity;
 
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -16,16 +15,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -45,22 +40,14 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Project.findByApplicantIDcard", query = "SELECT p FROM Project p WHERE p.applicantIDcard = :applicantIDcard")
     , @NamedQuery(name = "Project.findByApplicantMail", query = "SELECT p FROM Project p WHERE p.applicantMail = :applicantMail")
     , @NamedQuery(name = "Project.findByApplDate", query = "SELECT p FROM Project p WHERE p.applDate = :applDate")
-    , @NamedQuery(name = "Project.findByProjCatelog", query = "SELECT p FROM Project p WHERE p.projCatelog = :projCatelog")
     , @NamedQuery(name = "Project.findByProjClass", query = "SELECT p FROM Project p WHERE p.projClass = :projClass")
     , @NamedQuery(name = "Project.findByProjName", query = "SELECT p FROM Project p WHERE p.projName = :projName")
     , @NamedQuery(name = "Project.findByProjProvince", query = "SELECT p FROM Project p WHERE p.projProvince = :projProvince")
     , @NamedQuery(name = "Project.findByProjCity", query = "SELECT p FROM Project p WHERE p.projCity = :projCity")
-    , @NamedQuery(name = "Project.findByUserTel", query = "SELECT p FROM Project p WHERE p.userTel.userTel = :userTel")
     , @NamedQuery(name = "Project.findByProjRegion", query = "SELECT p FROM Project p WHERE p.projRegion = :projRegion")
-    , @NamedQuery(name = "Project.countByUserTel", query = "SELECT COUNT(p.projId) FROM Project p WHERE p.userTel.userTel = :userTel")})
-
+    , @NamedQuery(name = "Project.findByProjCondition", query = "SELECT p FROM Project p WHERE p.projCondition = :projCondition")
+    , @NamedQuery(name = "Project.CountByUserTel", query = "SELECT COUNT(p.projId) FROM Project p WHERE p.userTel = :userTel")})
 public class Project implements Serializable {
-
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 20)
-    @Column(name = "proj_condition")
-    private String projCondition;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -81,31 +68,18 @@ public class Project implements Serializable {
     @Size(min = 1, max = 30)
     @Column(name = "applicant_mail")
     private String applicantMail;
-    @Basic(optional = false)
-    @NotNull
+    @Size(max = 20)
     @Column(name = "appl_date")
-    @Temporal(TemporalType.DATE)
-    private Date applDate;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 30)
-    @Column(name = "proj_catelog")
-    private String projCatelog;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 30)
+    private String applDate;
     @Column(name = "proj_class")
-    private String projClass;
+    private Integer projClass;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 40)
     @Column(name = "proj_name")
     private String projName;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 20)
     @Column(name = "proj_province")
-    private String projProvince;
+    private Integer projProvince;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
@@ -128,21 +102,18 @@ public class Project implements Serializable {
     @Size(min = 1, max = 65535)
     @Column(name = "proj_depict")
     private String projDepict;
-    @JoinTable(name = "guard_proj", joinColumns = {
-        @JoinColumn(name = "proj_id", referencedColumnName = "proj_id")}, inverseJoinColumns = {
-        @JoinColumn(name = "user_tel", referencedColumnName = "user_tel")})
-    @ManyToMany
-    private Collection<User> userCollection;
+    @Column(name = "proj_condition")
+    private Integer projCondition;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "project")
     private Collection<InvesteProj> investeProjCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "project")
+    private Collection<GuardProj> guardProjCollection;
     @JoinColumn(name = "user_tel", referencedColumnName = "user_tel")
     @ManyToOne(optional = false)
     private User userTel;
-
+    
     private static int num = 0; 
-    
-    
-    
+
     public Project() {
         num++;
         projId=num;
@@ -152,15 +123,11 @@ public class Project implements Serializable {
         this.projId = projId;
     }
 
-    public Project(Integer projId, String applicantName, String applicantMail, Date applDate, String projCatelog, String projClass, String projName, String projProvince, String projCity, String projRegion, String projAddr, String projDepict) {
+    public Project(Integer projId, String applicantName, String applicantMail, String projName, String projCity, String projRegion, String projAddr, String projDepict) {
         this.projId = projId;
         this.applicantName = applicantName;
         this.applicantMail = applicantMail;
-        this.applDate = applDate;
-        this.projCatelog = projCatelog;
-        this.projClass = projClass;
         this.projName = projName;
-        this.projProvince = projProvince;
         this.projCity = projCity;
         this.projRegion = projRegion;
         this.projAddr = projAddr;
@@ -199,27 +166,19 @@ public class Project implements Serializable {
         this.applicantMail = applicantMail;
     }
 
-    public Date getApplDate() {
+    public String getApplDate() {
         return applDate;
     }
 
-    public void setApplDate(Date applDate) {
+    public void setApplDate(String applDate) {
         this.applDate = applDate;
     }
 
-    public String getProjCatelog() {
-        return projCatelog;
-    }
-
-    public void setProjCatelog(String projCatelog) {
-        this.projCatelog = projCatelog;
-    }
-
-    public String getProjClass() {
+    public Integer getProjClass() {
         return projClass;
     }
 
-    public void setProjClass(String projClass) {
+    public void setProjClass(Integer projClass) {
         this.projClass = projClass;
     }
 
@@ -231,11 +190,11 @@ public class Project implements Serializable {
         this.projName = projName;
     }
 
-    public String getProjProvince() {
+    public Integer getProjProvince() {
         return projProvince;
     }
 
-    public void setProjProvince(String projProvince) {
+    public void setProjProvince(Integer projProvince) {
         this.projProvince = projProvince;
     }
 
@@ -271,13 +230,12 @@ public class Project implements Serializable {
         this.projDepict = projDepict;
     }
 
-    @XmlTransient
-    public Collection<User> getUserCollection() {
-        return userCollection;
+    public Integer getProjCondition() {
+        return projCondition;
     }
 
-    public void setUserCollection(Collection<User> userCollection) {
-        this.userCollection = userCollection;
+    public void setProjCondition(Integer projCondition) {
+        this.projCondition = projCondition;
     }
 
     @XmlTransient
@@ -287,6 +245,15 @@ public class Project implements Serializable {
 
     public void setInvesteProjCollection(Collection<InvesteProj> investeProjCollection) {
         this.investeProjCollection = investeProjCollection;
+    }
+
+    @XmlTransient
+    public Collection<GuardProj> getGuardProjCollection() {
+        return guardProjCollection;
+    }
+
+    public void setGuardProjCollection(Collection<GuardProj> guardProjCollection) {
+        this.guardProjCollection = guardProjCollection;
     }
 
     public User getUserTel() {
@@ -321,14 +288,5 @@ public class Project implements Serializable {
     public String toString() {
         return "Entity.Project[ projId=" + projId + " ]";
     }
-
-    public String getProjCondition() {
-        return projCondition;
-    }
-
-    public void setProjCondition(String projCondition) {
-        this.projCondition = projCondition;
-    }
-    
     
 }

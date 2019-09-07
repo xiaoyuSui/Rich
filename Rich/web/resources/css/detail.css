@@ -1,0 +1,262 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2019-9-7, 9:38:21
+    Author     : lenovo
+*/
+    body.back{
+                background-image: url(../images/sxy/background.png)
+            }
+    .p{
+        width:1172px;
+        height:fit-content;
+        padding-top: 40px;
+        padding-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .desc{
+        font-size: 16px;
+        line-height: 1.6;
+        text-indent: 2em;
+        font-family: "微软雅黑";
+    }
+    .table{
+        margin-bottom: 40px;
+        border-top: 1px dashed #b5b5b5;
+        border-top-style: dashed;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .tr{
+        display:flex;
+        flex-direction:row;
+        border-bottom:  1px dashed;
+        align-self: center;
+        border-bottom-color: rgb(181, 181, 181);
+        width:1300px;
+        height:65px;
+    }
+    .item {
+        width:615px;
+        height:65px;
+    }
+    .text{
+        font-family: "微软雅黑";
+        padding-top: 19px;
+        padding-right: 30px;
+        padding-bottom: 19px;
+        padding-left: 30px;
+        font-size: 18px;
+        line-height: 65px;
+    }
+     .body.back{
+         background-image: url(../images/sxy/background.png)
+     }
+     .split{
+        margin-left: auto;
+        margin-right: auto;
+     }
+     .t_head {
+        position: relative;
+        padding-bottom: 60px;
+        padding-top: 36px;
+        font-family: 'fzqkbysjw';
+        text-align: center;
+   }
+    .h30::before,.h30::after{ 
+        content: ''; 
+        display: inline-block; 
+        width: 22px; 
+        height: 44px; 
+        vertical-align: top; 
+        background: url(../images/sxy/png7.png) no-repeat;
+    }
+
+   .t_line::before, .t_line::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 30px;
+        height: 17px;
+        background: url(../images/sxy/split.png) no-repeat; }
+    .t_line::after {
+        right: 0;
+        background-position: right;
+    }
+    .t_line::before {
+        left: 0;
+        background-position: left;
+    }
+    ::placeholder {
+        color: #333;
+        opacity: 1;
+    }
+   .t_line .bd {
+        position: absolute;
+        left: 30px;
+        right: 30px;
+        margin-top: 10px;
+        border-top: 1px solid #d8d8d8;
+    }
+    .wrap{
+        width: 1230px;
+    }
+    .inherit_xx2 {
+        padding: 45px 0 50px;
+        font: 14px/1.5 fzqkbysjw, Arial, Tahoma, Helvetica, sans-serif;
+        color: #333;
+    }
+        .x-wrap {
+        position: relative;
+        width: 1230px;
+        height: 100%;
+        margin: auto;
+
+    }
+    .inherit_xx2 .tit {
+        padding-bottom: 24px;
+    }
+    .x-tables {
+        margin-bottom: 50px;
+        background: url(../images/sxy/title_back.jpg) no-repeat;
+    }
+    .h24 {
+        font-size: 24px;
+        line-height: 1.2;
+        font-family: FZYaoti;
+    }
+    .x-tables table td .name {
+        display: none;
+    }
+    .x-tables table td {
+        font-size: 14px;
+        color: #333;
+        text-align: center;
+        font-family: "微软雅黑";
+        border-collapse: collapse;
+
+    }
+    .x-tables table tr:hover td {
+        color: #972a2a;
+    }
+    .x-tables table td {
+        font-size: 14px;
+        color: #333;
+        padding: 23px 0;
+        text-align: center;
+        border-bottom: 1px dashed #b5b5b5;
+        width: 137px;
+    }
+    .x-tables table th {
+        font-size: 16px;
+        color: #fff;
+        font-weight: normal;
+        line-height: 68px;
+        border-collapse: collapse;
+    }
+    .x-wrap th {
+        text-align: center;
+    }
+    .float{
+        position: fixed;
+    }
+    .float_icon{
+        position: fixed;
+        top:400px;
+        left:1700px;
+        height:220px;
+        width:180px;
+        background: url(../images/sxy/float.png) no-repeat;
+        z-index: 999;
+    }
+    .float_back{
+        position: fixed;
+        display: none;
+        left:1503px;
+        top:428px;
+        width:250px; 
+        height: 150px;
+        background: url(../images/sxy/float_back.png) no-repeat;
+    }
+    .float_icon:hover  .float_back{
+        display: block;
+        z-index: 999;
+    }
+
+    .like_icon{
+        display: block;
+        top:60px;
+        left:150px;
+        position: relative;
+        width:30px;
+        height: 30px;
+    }
+    .like_word{
+        top:30px;
+        left:35px;
+        position: relative;
+        font-size: 24px;
+        font-family: FZYaoti;
+        width:30px;
+        height:140px;
+        text-decoration: none;
+        text-align: center;
+    }
+    .white_content {
+        display: none;
+        position: absolute;
+        top: 125%;
+        left: 30%;
+        width: 40%;
+        padding: 6px 16px;
+        border: 12px solid #9a2929;
+        background-color: white;
+        z-index:1002;
+        overflow: auto;
+    }
+    .black_overlay {
+        display: none;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 250%;
+        background-color:#f5f5f5;
+        z-index:1001;
+        -moz-opacity: 0.8;
+        opacity:.80;
+        filter: alpha(opacity=80);
+    }
+    .close {
+        float:right;
+        clear:both;
+        width:100%;
+        text-align:right;
+        margin:0 0 6px 0
+    }
+    .close a {
+        color:#333;
+        text-decoration:none;
+        font-size:14px;
+        font-weight:700
+    }
+    .con {
+        text-indent:1.5pc;
+        line-height:21px
+    }
+    .donate{
+            width: 150px;
+            height:40px;
+            margin-left: 1450px;
+            background-color: #9a2929;
+            text-align: center;
+            line-height:40px;
+            vertical-align:middle;
+            color:white;
+    }
+   
+

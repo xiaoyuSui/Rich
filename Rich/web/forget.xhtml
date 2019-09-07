@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>找回密码</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" type="text/css" href="resources/css/log_in.css"/>
+    </h:head>
+    <div id="wrapper">
+            <nav class="switch_nav" >
+                <a href="update.xhtml" id="switch_signup" class="switch_btn">修改</a>
+                <a href="javascript:;" id="switch_login" class="switch_btn on">找回</a>
+                <div class="switch_bottom" id="switch_bottom"></div>
+            </nav>
+        </div>
+    <h:body style="background-image: url(resources/images/back3.png);background-size: 100%">
+        <h:form>
+            <p:panel id="panel" style="text-align:center;background-color: transparent;border: 0px;margin-top: 0px"> 
+                <h:panelGrid columns="1" class="group_input" style="text-align: center">
+                    <p:inputText id="userTel"  value="#{AllController.userTel}" required="true" maxlength="20" placeholder="输入手机号" requiredMessage="请输入手机号"
+                                 style="margin-left: 640px;background: transparent;text-align: center;margin-top: 0px"/>
+                </h:panelGrid>
+                    <p:commandButton value="获取验证码" update="panel" class="code-btn"  style="margin-left:0px;margin-top:10px;background-image: url(resources/images/button2.jpg);background-size: 100%" />         
+                <h:panelGrid columns="1" class="group_input" style="text-align: center">
+                    <p:inputText id="userCode"  required="true" maxlength="20" placeholder="输入验证码" requiredMessage="请输入验证码"
+                                 style="margin-left: 640px;background: transparent;text-align: center;margin-top:10px" />
+                </h:panelGrid>    
+                    <p:commandButton value="找回密码" update="panel" class="login-btn" action="#{AllController.forget}" style="margin-left:0px;margin-top: 10px;background-image: url(resources/images/button2.jpg);background-size: 100%" />
+                    <p:messages id="message" class="login-message" showDetail="false" showIcon="false" style="background: transparent;width:10px;margin-left: auto;margin-right: auto"/>
+                    <h:commandLink class="tab" value="返回登录" action="log_in"/>
+            </p:panel>
+        </h:form>
+       
+    </h:body>
+</html>

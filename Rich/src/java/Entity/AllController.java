@@ -7,12 +7,13 @@ package Entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 import javax.inject.Named;
 
@@ -50,6 +51,9 @@ public class AllController implements Serializable {
     private List<SelectItem> cataItems = null;
     //地区
     private List<SelectItem> provItems = null;
+    //捐款的金额
+    private List<Double> funding = new ArrayList<>();
+    private int donation=0;
 
     /*tangkexin*/
     //input绑定
@@ -72,13 +76,13 @@ public class AllController implements Serializable {
         System.out.print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1");
         current = new User("13671021552", "wqm", "password");
         detail = new Project();
-        Date date = new Date(2009, 4, 2);
+        String date = "2019.9.7";
         //测试数据
         detail.setProjName("脆皮鸭文学");
         detail.setProjId(1);
-        detail.setProjClass("民间文学");
+        detail.setProjClass(1);
         detail.setApplDate(date);
-        detail.setProjProvince("北京");
+        detail.setProjProvince(1);
         detail.setApplicantName("隋小雨");
         detail.setApplicantMail("13611393447@163.com");
         detail.setProjAddr("北京邮电大学");
@@ -89,6 +93,37 @@ public class AllController implements Serializable {
     }
 
 //--------------------------------------------------------------------tkx----------------------------------------------------------------------------------
+   public String forget(){
+        User u ;
+        u=getUserFacade().checklogup(userTel);
+        if(u != null){
+            FacesContext.getCurrentInstance().addMessage(null,
+                        new FacesMessage("你的密码为"+u.getUserPsw()));
+            return "log_in.xhtml";
+        }
+        else{
+            FacesContext.getCurrentInstance().addMessage(null,
+                        new FacesMessage("该手机号未注册"));
+            return "log_up.xhtml";
+        }
+    }
+    public String updatePsw(){
+        User u ;
+        u=getUserFacade().checklogup(userTel);
+        if(u != null){
+           u.setUserPsw(userPsw);
+           getUserFacade().edit(u);
+            FacesContext.getCurrentInstance().addMessage(null,
+                        new FacesMessage("你的密码已改为"+userPsw));
+            return "log_in.xhtml";
+        }
+        else{
+            FacesContext.getCurrentInstance().addMessage(null,
+                        new FacesMessage("该手机号未注册"));
+            return "log_up.xhtml";
+        }
+    }
+    
     public String logUp() {
         if (getUserFacade().checklogup(userTel) != null) {
             //弹出手机号已注册，转到登录界面
@@ -120,11 +155,10 @@ public class AllController implements Serializable {
 
      public String creartPro(){
        tempro = new Project();
-       tempro.setApplDate(new Date());
+       tempro.setApplDate(new String("wqm"));
        tempro.setApplicantIDcard(applicantIDcard);
        tempro.setApplicantMail(applicantMail);
        tempro.setProjAddr(projAddr);
-       tempro.setProjCatelog(projCatelog);
        tempro.setApplicantName(applicantName);
        tempro.setProjCity(projCity);
        tempro.setProjClass(projClass);
@@ -153,6 +187,62 @@ public class AllController implements Serializable {
 
 //----------------------------------------------------------------------------sxy-----------------------------------------------------------------------------
     
+     //详情页对项目捐款
+   public String Donate(){
+       if(current==null)
+           return "log_in.xhtml";
+       else{
+           this.investFacade.investeProj(current, detail, donation);
+           return null;
+       }
+   }
+
+   //通过判断是否守护取得心形标志的状态
+    public String guardState(int n){//n=1设置字符串
+       String state="empty"; 
+      //用户未登录调取登陆页面，心心空的  
+        if(this.current==null){
+            state="empty";
+        }
+        else {
+           GuardProj guard= this.guardFacade.getGuard(current,detail);
+            if(guard.getGuardProjPK().getUserTel()=="defult"){//查询守护没有结果返回defult对象
+                state="empty";
+            } 
+            else{
+                state="filled";
+            }
+        }
+           if(n==1){
+               if(state=="empty")
+                   return"守护项目";
+               else                 
+                    return "取消守护";     
+           } else{
+               if(state=="empty")
+                   return"heart_e.png";
+               else
+                    return "heart_f.png";    
+           }
+           
+       }
+   public int getDonation(){
+        return this.donation;
+    }    
+    public void setDonation(int num){
+        this.donation=num;
+    }
+    public boolean isLogin(){
+        if (current==null)
+            return false;
+        else return true;              
+    }
+    public boolean isLogout(){
+        if(current==null)
+            return true;
+        else return false;
+    }
+
     //当前请求详情的项目，按投资从多到少排列的第n项
       public Donate getDonate(int n){  
         List<Donate>  donate= new ArrayList<Donate>();
@@ -270,8 +360,23 @@ public class AllController implements Serializable {
         return myProject;
     }
     
-    //--------------------------------------------------------------------zyh------------------------------------------------------------------------------
+    //获取当前捐款的金额
+    public double getFund(int id){
+        double fund = getInvestFacade().findByUserTelAndProjId(current.getUserTel(), id).getFunding();
+        return fund;
+    }
     
+    //--------------------------------------------------------------------zyh------------------------------------------------------------------------------
+     public String toProj(Project pro) {
+       detail=pro;
+        kind = "";
+        prov = "";
+        System.out.print("detail");
+        System.out.print(pro.getProjId());
+        System.out.print(pro.getProjName());
+        return "detail";
+    }
+
     
     public String getKind() {
         return kind;
@@ -291,7 +396,7 @@ public class AllController implements Serializable {
     public List< SelectItem> getCataItems() {
 
         this.cataItems = new LinkedList< SelectItem>();
-        this.cataItems.add(new SelectItem("", "所有"));
+        this.cataItems.add(new SelectItem("", "选择类别"));
         this.cataItems.add(new SelectItem("雕塑工艺", "雕塑工艺"));
         this.cataItems.add(new SelectItem("陶瓷制作工艺", "陶瓷制作工艺"));
         this.cataItems.add(new SelectItem("织染工艺", "织染工艺"));
@@ -312,7 +417,7 @@ public class AllController implements Serializable {
 
         this.provItems = new LinkedList< SelectItem>();
 
-        this.provItems.add(new SelectItem("", "所有"));
+        this.provItems.add(new SelectItem("", "选择地区"));
         this.provItems.add(new SelectItem("北京市", "北京市"));
         this.provItems.add(new SelectItem("天津市", "天津市"));
         this.provItems.add(new SelectItem("河北省", "河北省"));

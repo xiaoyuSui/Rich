@@ -11,49 +11,84 @@ and open the template in the editor.
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:c="http://java.sun.com/jsp/jstl/core"
 >
-    <head>
+    <h:head>
         <title>个人中心</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <h:body>
-        <h:panelGrid columns="8">
-
-        </h:panelGrid>
-
-        <h:form>
-            <h:dataTable value="1" style="width: 800px">
-                <c:forEach items="#{investeProjController.investHeader}" var="phead">
-                       <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{phead}"/>
-                            </f:facet>
-                        </h:column>
-            </c:forEach>            
-        </h:dataTable>
-    </h:form>
+        <style>
+            .x-tables {
+                margin-top: 15px;
+                font-family: "楷体","楷体_GB2312";
+                margin-bottom: 0px;
+                font-size: 30px;
+                text-align: center;
+                margin-left: 100px;
+                margin-right: 100px;
+            }
+            .form_guard{
+                width:100%;
+                border-collapse: collapse;
+                border-bottom: 1px dashed #b5b5b5;
+                margin-bottom: 50px;
+                margin-top: 20px;
+                height: 60px;
+            }
+            .t_head{
+                margin-bottom: 10px;
+                font-size: 30px;
+                color: white;
+                text-align: center;
+            }
+            .row {
+                height: 80px;
+                margin-top: 20px; 
+            }
+        </style>
         
-        <h:form>            
-            <h:dataTable value="#{AllController.getMyInvest()}" var="item" style="width: 800px;">                  
-                <h:column>
-                    #{item.projName}
-                </h:column>
-                <h:column>
-                    #{item.applicantName}
-                </h:column>
-                <h:column>
-                    #{item.applDate}
-                </h:column>
-                <h:column>
-                    #{item.projCatelog}
-                </h:column>
-                <h:column>
-                    #{item.projClass}
-                </h:column>
-                <h:column>
-                   "http://"+"#{item.projId}"
-                </h:column>               
-            </h:dataTable>            
-        </h:form>
-      
+    </h:head>
+    <h:body style="background-image: url(../resources/images/list/inherit_xx1.png); background-repeat: no-repeat">
+        <div class="x-tables">
+            <h:form>
+                <h:dataTable value="#{AllController.getMyInvest()}" var="item" headerClass="t_head" class="form_guard" rowClasses="row">
+                   <h:column>
+                       <f:facet  name="header">
+                           <h:outputText value="项目编号"/>
+                       </f:facet>
+                       <h:outputText  value="#{item.projId}"/>
+                   </h:column>
+                   <h:column>
+                       <f:facet name="header">
+                           <h:outputText value="名称" />
+                       </f:facet>
+                       <h:commandLink action="#{AllController.toProj(projectController.getProject(item.projId))}" style="text-decoration: none;color: inherit;"/>
+                   </h:column>
+                   <h:column>
+                       <f:facet  name="header" >
+                           <h:outputText value="类别" />
+                       </f:facet>
+                       <h:outputText  value="#{item.projClass}"/>
+                   </h:column>
+                   <h:column>
+                       <f:facet  name="header" >
+                           <h:outputText value="申报省份" />
+                       </f:facet>
+                       <h:outputText  value="#{item.projProvince}"/>
+                   </h:column>
+                    <h:column>
+                       <f:facet  name="header" >
+                           <h:outputText value="申报时间" />
+                       </f:facet>
+                        <h:outputText  value="#{item.applDate}"/>
+                   </h:column>
+                    
+                   <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="金额"/>
+                        </f:facet>
+                        <h:outputText value="1"/>
+                    </h:column>
+
+               </h:dataTable>
+            </h:form>
+        </div>
     </h:body>
 </html>

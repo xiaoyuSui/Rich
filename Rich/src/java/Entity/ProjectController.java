@@ -2,11 +2,8 @@ package Entity;
 
 import Entity.util.JsfUtil;
 import Entity.util.PaginationHelper;
-import java.awt.event.ActionEvent;
 
 import java.io.Serializable;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -22,43 +19,17 @@ import javax.faces.model.SelectItem;
 @Named("projectController")
 @SessionScoped
 public class ProjectController implements Serializable {
-    
+
     private Project current;
     private DataModel items = null;
-    
     @EJB
     private Entity.ProjectFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
-    
-    private List<Project> projectList;
-    private List<String> project_header;
-    
-    public void setProjectList(){
-        
-    }
-    
-    public List<Project> getProjectList(){
-        projectList = this.getFacade().findAll();
-        return projectList;
+
+    public ProjectController() {
     }
 
-    public ProjectController(){
-        initData();
-    }
-    
-    public List<String> getProjectHeader() {
-	return project_header;
-	}
-
-    public void setProjectHeader(List<String> header) {
-        this.project_header = header;
-    }
-    
-    private void initData(){
-        project_header = Arrays.asList(new String[]{"ID","名称","申请人","申请时间","门类","部类","url"});
-    }
-    
     public Project getSelected() {
         if (current == null) {
             current = new Project();
@@ -259,40 +230,4 @@ public class ProjectController implements Serializable {
 
     }
 
-//-------------------------------------gcx--------------------------------------
-    public List<Project> getProjectList(int condition){
-        projectList=this.getFacade().findAll(condition);
-        return projectList;
-    }
-
-    public void btnUnchecked(){
-        getProjectList(0);
-    }
-    
-    public void btnCheckSuccess(){
-        getProjectList(1);
-    }
-    
-    public void btnCheckFail(){
-        getProjectList(-1);
-    }
-    
-    public void btnAccept(){
-            if(current!=null){
-                current.setProjCondition("通过");
-            }
-            else{
-                current.setProjCondition("未通过");
-            }
-    }
-    
-    public void btnDeny(ActionEvent e){
-           if(current!=null){
-                current.setProjCondition("通过");
-            }
-            else{
-                current.setProjCondition("未通过");
-            } 
-    }
-    
 }

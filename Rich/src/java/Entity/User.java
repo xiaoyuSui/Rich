@@ -12,7 +12,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -53,12 +52,12 @@ public class User implements Serializable {
     @Size(min = 1, max = 20)
     @Column(name = "user_psw")
     private String userPsw;
-    @ManyToMany(mappedBy = "userCollection")
-    private Collection<Project> projectCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private Collection<InvesteProj> investeProjCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private Collection<GuardProj> guardProjCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userTel")
-    private Collection<Project> projectCollection1;
+    private Collection<Project> projectCollection;
 
     public User() {
     }
@@ -98,15 +97,6 @@ public class User implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Project> getProjectCollection() {
-        return projectCollection;
-    }
-
-    public void setProjectCollection(Collection<Project> projectCollection) {
-        this.projectCollection = projectCollection;
-    }
-
-    @XmlTransient
     public Collection<InvesteProj> getInvesteProjCollection() {
         return investeProjCollection;
     }
@@ -116,12 +106,21 @@ public class User implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Project> getProjectCollection1() {
-        return projectCollection1;
+    public Collection<GuardProj> getGuardProjCollection() {
+        return guardProjCollection;
     }
 
-    public void setProjectCollection1(Collection<Project> projectCollection1) {
-        this.projectCollection1 = projectCollection1;
+    public void setGuardProjCollection(Collection<GuardProj> guardProjCollection) {
+        this.guardProjCollection = guardProjCollection;
+    }
+
+    @XmlTransient
+    public Collection<Project> getProjectCollection() {
+        return projectCollection;
+    }
+
+    public void setProjectCollection(Collection<Project> projectCollection) {
+        this.projectCollection = projectCollection;
     }
 
     @Override

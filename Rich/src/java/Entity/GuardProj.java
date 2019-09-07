@@ -28,9 +28,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "GuardProj.findByProjId", query = "SELECT g FROM GuardProj g WHERE g.guardProjPK.projId = :projId")
     , @NamedQuery(name = "GuardProj.findByUserTel", query = "SELECT g FROM GuardProj g WHERE g.guardProjPK.userTel = :userTel")
     , @NamedQuery(name = "GuardProj.findByAddtion", query = "SELECT g FROM GuardProj g WHERE g.addtion = :addtion")
-    , @NamedQuery(name = "GuardProj.findSumByUserTel", query = "SELECT g FROM GuardProj g WHERE g.guardProjPK.userTel = :userTel")
-    //Add
-    , @NamedQuery(name = "GuardProj.countByUserTel", query = "SELECT COUNT(g.guardProjPK.projId) FROM GuardProj g WHERE g.guardProjPK.userTel = :userTel")})
+    , @NamedQuery(name = "GuardProj.CountByUserTel", query = "SELECT COUNT(g.guardProjPK.projId) FROM GuardProj g WHERE g.guardProjPK.userTel = :userTel")})
 public class GuardProj implements Serializable {
 
     private static final long serialVersionUID = 1L;
