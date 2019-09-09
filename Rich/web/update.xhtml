@@ -27,16 +27,16 @@ and open the template in the editor.
             <p:panel id="panel" style="text-align:center;background-color: transparent;border: 0px;margin-top: -10px"> 
                 <h:panelGrid columns="1" class="group_input" style="text-align: center">
                     <p:inputText id="userTel"  value="#{AllController.userTel}" required="true" maxlength="20" placeholder="输入手机号" requiredMessage="请输入手机号"
-                                 style="margin-left: 640px;background: transparent;text-align: center;margin-top: 0px"/>
+                                 style="margin-left: 790px;background: transparent;text-align: center;margin-top: 0px"/>
                 </h:panelGrid>
                     <p:commandButton value="获取验证码" update="panel" class="code-btn"  style="margin-left:0px;margin-top:10px;background-image: url(resources/images/button2.jpg);background-size: 100%" />         
                 <h:panelGrid columns="1" class="group_input" style="text-align: center">
                     <p:inputText id="userCode"  required="true" maxlength="20" placeholder="输入验证码" requiredMessage="请输入验证码"
-                                 style="margin-left: 640px;background: transparent;text-align: center;margin-top:10px" />
+                                 style="margin-left: 790px;background: transparent;text-align: center;margin-top:10px" />
                     <p:password id="userPsw"   value="#{AllController.userPsw}" required="true" maxlength="20" placeholder="输入密码" requiredMessage="请输入密码"
-                                 style="margin-left: 640px;background: transparent;text-align: center;margin-top:10px" />
+                                 style="margin-left: 790px;background: transparent;text-align: center;margin-top:10px" />
                 </h:panelGrid>    
-                    <p:commandButton value="修改密码" update="panel" class="login-btn" action="#{AllController.updatePsw}" style="margin-left:0px;margin-top: 10px;background-image: url(resources/images/button2.jpg);background-size: 100%" />
+                    <p:commandLink value="修改密码" update="panel" action="#{AllController.updatePsw}" style="margin-left:0px;margin-top: 10px;width:120px" />
                     <p:messages id="message" class="login-message" showDetail="false" showIcon="false" style="background: transparent"/>
                     <h:commandLink class="tab" value="返回登录" action="log_in"/>
             </p:panel>

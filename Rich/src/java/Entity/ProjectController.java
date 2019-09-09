@@ -4,6 +4,7 @@ import Entity.util.JsfUtil;
 import Entity.util.PaginationHelper;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -25,8 +26,91 @@ public class ProjectController implements Serializable {
     @EJB
     private Entity.ProjectFacade ejbFacade;
     private PaginationHelper pagination;
+    private PaginationHelper countPagination;
+    private PaginationHelper tablePagination;
     private int selectedItemIndex;
+    private List<Project> projectList;
+    private int conditionChoose;
+    
+    public PaginationHelper getTablePagination(){
+        return tablePagination;
+    }
+    
+    public String search(Integer cata, Integer prov) {
 
+        //getPagination().setPage(0);
+        recreateModel();
+        tablePagination=null;
+        return "list";
+    }
+
+    public Integer countItems(Integer cata, Integer prov) {
+        recreateModel();
+        items = getPagination(cata, prov, "count").createPageDataModel();
+        Integer c = items.getRowCount();
+        recreateModel();
+        return c;
+    }
+
+    public PaginationHelper getPagination(Integer id, Integer name, String s) {       
+        countPagination = new PaginationHelper(10) {
+
+            @Override
+            public int getItemsCount() {
+                return getFacade().count();
+            }
+
+            @Override
+            public DataModel createPageDataModel() {
+
+                return new ListDataModel(getFacade().findAll(new int[]{getPageFirstItem(), getPageFirstItem() + getPageSize()}, id, name));
+            }
+        };
+
+        return countPagination;
+    }
+
+    public DataModel tableItems(Integer cata, Integer prov) {
+        if (items == null) {
+            items = getPagination(cata, prov).createPageDataModel();
+        }
+        return items;
+    }
+
+    public String next(Integer id, Integer name) {
+        getPagination(id, name).nextPage();
+        recreateModel();
+        return "list";
+    }
+
+    public String previous(Integer id, Integer name) {
+        getPagination(id,name).previousPage();
+        recreateModel();
+        return "list";
+    }
+
+    public PaginationHelper getPagination(Integer id, Integer name) {
+        if (tablePagination == null) {
+
+        tablePagination = new PaginationHelper(10) {
+
+            @Override
+            public int getItemsCount() {
+                return getFacade().count();
+            }
+
+            @Override
+            public DataModel createPageDataModel() {
+
+                return new ListDataModel(getFacade().findRange(new int[]{getPageFirstItem(), getPageFirstItem() + getPageSize()}, id, name));
+            }
+        };
+        }
+
+        return tablePagination;
+    }
+
+    
     public ProjectController() {
     }
 
@@ -230,4 +314,65 @@ public class ProjectController implements Serializable {
 
     }
 
+  /*public void setProjectList(){
+        
+    }
+    
+    public List<Project> getProjectList(){
+        projectList = this.getFacade().findAll();
+        return projectList;
+    }*/
+    
+    /*public List<Project> getProjectList(int condition){//string
+        System.out.println("获得了projectList");
+        projectList=this.getFacade().findAll(condition);
+        return projectList;
+    }*/
+    
+    //满足条件的projectList
+    public List<Project> getProjectList(int condition) {
+        projectList=getFacade().findByProjCondition(condition);
+       
+        return projectList;
+    }
+    
+    public void setConditionChoose(){      
+    }
+    
+    public int getConditionChoose(){
+        return conditionChoose;
+    }
+    
+    public void btnUnchecked(){
+        System.out.println("点击了未审核按钮");
+        conditionChoose=0;     
+    }
+    
+    public void btnCheckSuccess(){
+         System.out.println("点击了审核成功按钮");
+        conditionChoose=1;
+    }
+    
+    public void btnCheckFail(){
+         System.out.println("点击了审核失败按钮");
+        conditionChoose=-1;
+    }
+    
+    public void btnAccept(Project prj,int pjID){      
+                int condition=1;
+                System.out.println("通过");
+                getFacade().projectChange(prj, condition, pjID);
+                System.out.println("btnAccept");
+                
+            
+    }
+    
+    
+    public void btnDeny(Project prj,int pjID){   
+               int condition=-1;
+                 System.out.println("未通过");
+                getFacade().projectChange(prj, condition, pjID);
+                 System.out.println("btnDeny");
+             
+    }  
 }

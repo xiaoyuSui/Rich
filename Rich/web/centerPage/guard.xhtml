@@ -59,19 +59,19 @@ and open the template in the editor.
                        <f:facet name="header">
                            <h:outputText value="名称" />
                        </f:facet>
-                       <h:commandLink action="#{AllController.toProj(projectController.getProject(item.projId))}" style="text-decoration: none;color: inherit;"/>
+                       <h:commandLink action="#{AllController.toProj(projectController.getProject(item.projId))}" value="#{item.projName}" style="text-decoration: none;color: inherit;"/>
                    </h:column>
                    <h:column>
                        <f:facet  name="header" >
                            <h:outputText value="类别" />
                        </f:facet>
-                       <h:outputText  value="#{item.projClass}"/>
+                       <h:outputText  value="#{AllController.cataIntCnvtToString(item.projClass)}"/>
                    </h:column>
                    <h:column>
                        <f:facet  name="header" >
                            <h:outputText value="申报省份" />
                        </f:facet>
-                       <h:outputText  value="#{item.projProvince}"/>
+                       <h:outputText  value="#{AllController.provIntCnvtToString(item.projProvince)}"/>
                    </h:column>
                     <h:column>
                        <f:facet  name="header" >

@@ -3,7 +3,7 @@
 .t_head{ position: relative; padding: 36px 0 40px; font-family: 'fzqkbysjw'; text-align: center;}
 .t_head .h30{ line-height: 44px;}
 /*.t_head .h30 br{ display:none; }*/
-.t_head .h30:before, .t_head .h30:after{ content: ''; display: inline-block; width: 22px; height: 44px; vertical-align: top; background: url(../images/png7.png) no-repeat;}
+.t_head .h30:before, .t_head .h30:after{ content: ''; display: inline-block; width: 22px; height: 44px; vertical-align: top; background: url(../images/sxy/png7.png) no-repeat;}
 .t_head.white .h30:before, .t_head.white .h30:after{ background-image: url(../images/png8.png);}
 .t_head.blue .h30:before, .t_head.blue .h30:after{ background-image: url(../images/png75.png);}
 .t_head .h30:before{ background-position: left; margin-right: 18px;}

@@ -8,10 +8,10 @@
     <f:view contentType="text/html">
         <h:head>
             <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-                        
+
             <style>
-                
-               .icon{
+
+                .icon{
                     width: 50px;
                     height: 50px;
                     margin-top: 13px;
@@ -62,28 +62,33 @@
 
                 }
             </style>
-            
+
         </h:head>
 
         <h:body>
-        
+
             <div style="position: absolute; left: 0px; top:5px">
                 <div class="title1">
                     <img class="icon" src="resources/images/sxy/icon.png" />
                     <h:form>
-                      <h:commandLink class="name" value="中国传统技艺·中国传统技艺电子博物馆" action="index" target = "_top"/>
-                      <h:commandLink class="text" value="项目申请" action = "CreatePro"/>
+                        <h:commandLink class="name" value="中国传统技艺·中国传统技艺电子博物馆" action="index" target = "_top"/>
+                        <h:commandLink class="text" value="项目申请   |" action = "CreatePro" target="_top" rendered="#{AllController.isLogin()}"/>                                    
+                        <h:commandLink class="text" value="登陆|注册" action="log_in" target = "_top" rendered="#{AllController.isLogout()}"/>
+                        <h:commandLink class="text" value="   个人中心"  action="center" target="_top" rendered="#{AllController.isLogin()}"/>
+
                     </h:form>
                 </div>
 
                 <div class="title2">
                     <h:form>
                         <h:body class="tab"></h:body>
-                        <h:commandLink class="tab" value="首页" action="index" target = "_top"/>
-                        <h:commandLink class="tab" value="机构" action="institution" target = "_top"/>
-                        <h:commandLink class="tab" value="清单" action="list" target = "_top"/>
-                        <h:commandLink class="tab" value="百科" action="introduce" target = "_top"/>
-                        <h:commandLink class="tab" value="资源" action="ziyuan" target = "_top"/>
+                       
+                        <h:commandLink class="tab" value="首页" action="#{AllController.indexChangeKind()}" target = "_top"/>
+                        <h:commandLink class="tab" value="机构" action="#{AllController.institutionChangeKind()}" target = "_top"/>
+                        <h:commandLink class="tab" value="清单" action="#{AllController.listChangeKind()}" target = "_top"/>
+                        <h:commandLink class="tab" value="百科" action="#{AllController.introduceChangeKind()}" target = "_top"/>
+                        <h:commandLink class="tab" value="资源" action="#{AllController.ziyuanChangeKind()}" target = "_top"/>
+
                     </h:form>
                 </div>
             </div>

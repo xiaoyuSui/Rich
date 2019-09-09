@@ -43,7 +43,7 @@ html, body, h1, h2, h3, h4, h5, h6, div, ol, ul, li, dl, dt, dd, table, caption,
 }
 .x-wrap {
     position: relative;
-    width: 1230px;
+    width: 1600px;
     height: 100%;
     margin: auto;
 }
@@ -171,11 +171,11 @@ a {
     text-align: center;
 }
 .x-wrap {
-    width: 1230px;
+    width: 1600px;
 }
 .x-wrap {
     position: relative;
-    width: 1230px;
+    width: 1600px;
     height: 100%;
     margin: auto;
 }
@@ -285,9 +285,7 @@ a {
     height: 850px;
     width: 100%;
 }
-.resources1 .list .item.act {
-    width: 50%;
-}
+
 .resources1 .list .item {
     float: left;
     background-repeat: no-repeat;

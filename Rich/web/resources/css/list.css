@@ -67,6 +67,21 @@ and open the template in the editor.
     Created on : Sep 3, 2019, 5:02:24 PM
     Author     : zhangyihua
 */
+form.dataTable tr:hover td{
+    color: #972a2a;
+}
+tr:hover{
+    color: #972a2a;
+}
+
+.colorrow{
+    color: #333;
+}
+
+commandLink.colorrow:hover{
+    color: #972a2a;
+}
+
 html, body, h1, h2, h3, h4, h5, h6, div, ol, ul, li, dl, dt, dd, table, caption, tr, th, td, span, p, a, b, u, i, em, img, iframe, fieldset, form, label, legend, input, button, select, textarea {
     margin: 0;
     padding: 0;

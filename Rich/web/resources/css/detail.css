@@ -67,14 +67,7 @@ and open the template in the editor.
         font-family: 'fzqkbysjw';
         text-align: center;
    }
-    .h30::before,.h30::after{ 
-        content: ''; 
-        display: inline-block; 
-        width: 22px; 
-        height: 44px; 
-        vertical-align: top; 
-        background: url(../images/sxy/png7.png) no-repeat;
-    }
+    
 
    .t_line::before, .t_line::after {
         content: '';
@@ -167,7 +160,7 @@ and open the template in the editor.
     .float_icon{
         position: fixed;
         top:400px;
-        left:1700px;
+        left:1750px;
         height:220px;
         width:180px;
         background: url(../images/sxy/float.png) no-repeat;
@@ -176,8 +169,8 @@ and open the template in the editor.
     .float_back{
         position: fixed;
         display: none;
-        left:1503px;
-        top:428px;
+        left:1551px;
+        top:433px;
         width:250px; 
         height: 150px;
         background: url(../images/sxy/float_back.png) no-repeat;
@@ -205,13 +198,14 @@ and open the template in the editor.
         height:140px;
         text-decoration: none;
         text-align: center;
+        color: black;
     }
     .white_content {
         display: none;
         position: absolute;
         top: 125%;
         left: 30%;
-        width: 40%;
+        width: 30%;
         padding: 6px 16px;
         border: 12px solid #9a2929;
         background-color: white;
@@ -258,5 +252,7 @@ and open the template in the editor.
             vertical-align:middle;
             color:white;
     }
-   
-
+    .t_head .h30:before, .t_head .h30:after{ content: ''; display: inline-block; width: 22px; height: 44px; vertical-align: top; background: url(../images/sxy/png7.png) no-repeat;}
+    .t_head .h30:before{ background-position: left; margin-right: 18px;}
+    .t_head .h30:after{ background-position: right; margin-left: 18px;}
+    .t_head .h30{ line-height: 44px;}

@@ -44,6 +44,35 @@ public abstract class AbstractFacade<T> {
         cq.select(cq.from(entityClass));
         return getEntityManager().createQuery(cq).getResultList();
     }
+    
+    public List<T> findAll(int[] range, Integer cata, Integer prov) {
+
+        if ((cata == 0) && (prov == 0)) {
+            
+            String hql = "SELECT p FROM Project p WHERE p.projCondition = 1";
+            javax.persistence.Query q = getEntityManager().createQuery(hql);
+            return q.getResultList();
+        } else if (cata == 0 && prov != 0) {
+            String hql = "SELECT p FROM Project p WHERE p.projProvince = :projProvince AND p.projCondition = 1";
+            javax.persistence.Query q = getEntityManager().createQuery(hql);
+            q.setParameter("projProvince", prov);
+            return q.getResultList();
+        } else if (cata != 0 && prov == 0) {
+            String hql = "SELECT p FROM Project p WHERE p.projClass = :projClass AND p.projCondition = 1";
+            //String hql = "SELECT p FROM Project p WHERE p.applicantName = :applicantName AND p.projCondition = :condition";
+            javax.persistence.Query q = getEntityManager().createQuery(hql);
+            q.setParameter("projClass", cata);
+            return q.getResultList();
+        } else {
+            String hql = "SELECT p FROM Project p WHERE p.projClass = :projClass AND p.projProvince = :projProvince AND p.projCondition = 1";
+            javax.persistence.Query q = getEntityManager().createQuery(hql);
+            q.setParameter("projProvince", prov);
+            q.setParameter("projClass", cata);
+            return q.getResultList();
+        }
+
+    }
+
 
     public List<T> findRange(int[] range) {
         javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
@@ -54,42 +83,37 @@ public abstract class AbstractFacade<T> {
         return q.getResultList();
     }
 
-    public List<T> findRange(int[] range, String cata, String prov) {
+    public List<T> findRange(int[] range, Integer cata, Integer prov) {
 
-        System.out.print(cata);
-        System.out.print(prov);
-        System.out.print("ffffff");
-        if ((cata == "") && (prov == "")) {
-            System.out.print("liawuqiu");
+        if ((cata == 0) && (prov == 0)) {
             String hql = "SELECT p FROM Project p WHERE p.projCondition = 1";
             javax.persistence.Query q = getEntityManager().createQuery(hql);
+            
             q.setMaxResults(range[1] - range[0] + 1);
             q.setFirstResult(range[0]);
             return q.getResultList();
-        } else if (cata == "" && prov != "") {
-            System.out.print("provqqq");
-
+        } else if (cata == 0 && prov != 0) {
             String hql = "SELECT p FROM Project p WHERE p.projProvince = :projProvince AND p.projCondition = 1";
             javax.persistence.Query q = getEntityManager().createQuery(hql);
             q.setParameter("projProvince", prov);
+           
             q.setMaxResults(range[1] - range[0] + 1);
             q.setFirstResult(range[0]);
             return q.getResultList();
-        } else if (cata != "" && prov == "") {
-            System.out.print("ctaaqqq");
-            //String hql = "SELECT p FROM Project p WHERE p.projClass = :projClass AND p.projCondition = 1";
-            String hql = "SELECT p FROM Project p WHERE p.applicantName = :applicantName AND p.projCondition = 1";
+        } else if (cata != 0 && prov == 0) {
+            String hql = "SELECT p FROM Project p WHERE p.projClass = :projClass AND p.projCondition = 1";
+            //String hql = "SELECT p FROM Project p WHERE p.applicantName = :applicantName AND p.projCondition = :condition";
             javax.persistence.Query q = getEntityManager().createQuery(hql);
-            //q.setParameter("projClass", cata);
-            q.setParameter("applicantName", "aa");
+            q.setParameter("projClass", cata);
+            //q.setParameter("applicantName", "aa");
             q.setMaxResults(range[1] - range[0] + 1);
             q.setFirstResult(range[0]);
             return q.getResultList();
         } else {
-            System.out.print("both");
             String hql = "SELECT p FROM Project p WHERE p.projClass = :projClass AND p.projProvince = :projProvince AND p.projCondition = 1";
             javax.persistence.Query q = getEntityManager().createQuery(hql);
             q.setParameter("projProvince", prov);
+            //q.setParameter("condition", 1);
             q.setParameter("projClass", cata);
             q.setMaxResults(range[1] - range[0] + 1);
             q.setFirstResult(range[0]);
@@ -97,6 +121,7 @@ public abstract class AbstractFacade<T> {
         }
 
     }
+
 
     public int count() {
         javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
@@ -106,27 +131,11 @@ public abstract class AbstractFacade<T> {
         return ((Long) q.getSingleResult()).intValue();
     }
 
-    public List<T> findAll(int condition) {
-        switch (condition) {
-            case 0: {
-                String hql = "SELECT p FROM project p WHERE p.condition=0";
-                javax.persistence.Query q = getEntityManager().createQuery(hql);
-                return q.getResultList();
-            }
-            case -1: {
-                String hql = "SELECT p FROM project p WHERE p.condition=-1";
-                javax.persistence.Query q = getEntityManager().createQuery(hql);
-                return q.getResultList();
-            }
-            case 1: {
-                String hql = "SELECT p FROM project p WHERE p.condition=1";
-                javax.persistence.Query q = getEntityManager().createQuery(hql);
-                return q.getResultList();
-            }
-            default:
-                javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
-                cq.select(cq.from(entityClass));
-                return getEntityManager().createQuery(cq).getResultList();
-        }
+    public List<T> findAll(int addtion) {//string
+        String hql = "SELECT p FROM project p WHERE p.addtion = :addtion";
+        
+        javax.persistence.Query q = getEntityManager().createQuery(hql);
+        q.setParameter("addtion", addtion);
+       return q.getResultList();
     }
 }

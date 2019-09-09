@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    <h:head>
+        <title>Hello Manager</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" type="text/css" href="resources/css/manager.css"/>
+       
+    </h:head>
+    
+    
+    
+    <h:body>
+        <div class="box">
+            <div class="header">
+                <div class="headerBackground">
+        
+                    <div class="headerTitle">尊敬的管理员，中国传统技艺电子博物馆欢迎您</div> 
+                </div>
+                <div class="nav"> 
+                    <h:form>
+                    <ul>
+                        <li>
+                            <h:commandButton class="cb" action="#{projectController.btnUnchecked()}" value="未审核"></h:commandButton>
+                        </li>
+                        
+                        <li>
+                            <h:commandButton class="cb" action="#{projectController.btnCheckSuccess()}" value="审核通过"></h:commandButton>
+                        </li>
+                        <li>
+                            <h:commandButton class="cb" action="#{projectController.btnCheckFail()}" value="审核失败"></h:commandButton>
+                        </li>
+               
+                    </ul>
+                    </h:form>  
+                    </div> 
+                <div class="headerline"></div>
+            </div>
+            
+            <div class="main">
+                <!--div class="left"></div-->
+                
+                <div class="center">
+                    <div class="item">              
+                            
+                        <c:forEach begin="0" end="2" var="item" items="#{projectController.getProjectList(projectController.conditionChoose)}" varStatus="itemList">
+                            
+                        <div class="project">
+                          
+                        <div class="pleft">
+                            <img src="resources/images/back3.png" alt="foo" height="300" width="300" style=" border-radius: 5px"></img>
+                        </div>
+                        
+                        <div class="pright">
+                            
+                        <table border="1">
+                            <tr>
+                                <td colspan="5" class="block1">
+                                    <div class="tableContent">#{item.projName}</div>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td colspan="5" class="block2">
+                                    <div class="tableContent">项目编号：#{item.projId}</div>
+                                </td>
+                            </tr>
+                       
+                            <tr>
+                                <td class="block3"><div class="tableContent">类别：#{AllController.cataIntCnvtToString(item.projClass)}</div></td>
+                                <td class="block3"><div class="tableContent">省份：#{AllController.provIntCnvtToString(item.projProvince)}</div></td>
+                                <td class="block3"><div class="tableContent">城市：#{item.projCity}</div></td>
+                                <td class="block3"><div class="tableContent">地区：#{item.projRegion}</div></td>
+                                <td class="block3"><div class="tableContent">具体地址：#{item.projAddr}</div></td>
+                            </tr>
+                        
+                            <tr>
+                                <td colspan="2" class="block4"><div class="tableContent">姓名：#{item.applicantName}</div></td>
+                                <td colspan="3" class="block5"><div class="tableContent">身份证号：#{item.applicantIDcard}</div></td>
+                            </tr>
+                          
+                            <tr>
+                                <td colspan="2" class="block4"><div class="tableContent">联系电话：#{item.userTel}</div></td>
+                                <td colspan="3" class="block5"><div class="tableContent">邮箱：#{item.applicantMail}</div></td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" class="block6"><div class="tableContent">#{item.projDepict}</div></td>
+                            </tr>
+                        </table>
+                           
+                        </div>
+                        
+                            <div class="btnBox">
+                                <h:form>
+                                    <h:commandButton class="btn" value="Accept" 
+                                                      action="#{projectController.btnAccept(projectController.getProject(item.projId),item.projId)}"
+                                                      onclick="AcceptMessage()"
+                                                      style="margin: 100px 30px 10px 30px"></h:commandButton>
+                                                     <p id="demo"></p>
+                                                     <script>
+                                                         function AcceptMessage(){
+                                                             var txt;
+                                                             if(confirm("确定这个项目通过审核")){
+                                                                 txt="确定这个项目通过审核";
+                                                             }else{
+                                                                 txt="确定这个项目不通过审核";
+                                                             }
+                                                             doucument.getElementById("demo").innerHTML=txt;
+                                                         }
+                                                     </script>
+                                    <h:commandButton class="btn" value="Deny" 
+                                                       action="#{projectController.btnDeny(projectController.getProject(item.projId),item.projId)}"
+                                                       onclick="DenyMessage()"
+                                                       style="margin: 10px 30px 100px 30px"></h:commandButton>
+                                                     <p id="deny"></p>
+                                                     <script>
+                                                         function DenyMessage(){
+                                                             var txt;
+                                                             if(confirm("确定这个项目不通过审核")){
+                                                                 txt="确定这个项目不通过审核";
+                                                             }else{
+                                                                 txt="确定这个项目通过审核";
+                                                             }
+                                                             doucument.getElementById("deny").innerHTML=txt;
+                                                         }
+                                                     </script>
+                                </h:form>                          
+                            </div>
+                        </div>
+                         <br/>
+                         <br/>
+                    </c:forEach>
+                        
+                    </div>       
+                        
+                    <br/>
+                    <br/>
+                  </div>  
+            
+                
+                <div class="right">
+                    
+                      
+                    <h:form>
+                        <h:body class="tab"></h:body>
+                        <div class="skip">
+                        <h:commandLink class="tab" value="首页" action="#{AllController.indexChangeKind()}" target = "_top"/>
+                        </div>
+                        <div class="skip">
+                        <h:commandLink class="tab" value="机构" action="#{AllController.institutionChangeKind()}" target = "_top"/>
+                        </div>
+                        <div class="skip">
+                        <h:commandLink class="tab" value="清单" action="#{AllController.listChangeKind()}" target = "_top"/>
+                        </div>
+                        <div class="skip">
+                        <h:commandLink class="tab" value="百科" action="#{AllController.introduceChangeKind()}" target = "_top"/>
+                       </div>
+                        <div class="skip">
+                        <h:commandLink class="tab" value="资源" action="#{AllController.ziyuanChangeKind()}" target = "_top"/>
+                        </div>
+                    </h:form>
+                       
+                      
+                </div>
+            </div>
+            
+             
+        
+        <div class="foot"></div>              
+     </div>
+    </h:body>
+</html>

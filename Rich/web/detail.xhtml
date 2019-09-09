@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <iframe  MARGINWIDTH="0" MARGINHEIGHT="0" HSPACE="0" VSPACE="0" FRAMEBORDER="0" SCROLLING="no" src="head.xhtml" width="100%"  height="auto"/>
+  
+        <h:outputStylesheet  name="css/detail.css"/>
+        <script>
+           
+    function show(tag){
+        var light=document.getElementById(tag);
+        var fade=document.getElementById('fade');
+        light.style.display='block';
+        fade.style.display='block';
+        }
+    function hide(tag){
+        var light=document.getElementById(tag);
+        var fade=document.getElementById('fade');
+        light.style.display='none';
+        fade.style.display='none';
+        }
+        </script>
+        
+    </h:head>
+    <body class="back">
+        
+        <div class="t_head">
+            <div class="h30">
+                <h:outputText value="#{AllController.detail.projName}"/>
+            </div>
+        </div>
+        
+       
+
+        <table class="table">
+            <tr class="tr">
+                <td class="item">
+                    <h:outputText class="text" value="项目序号：#{AllController.detail.projId}"/>
+                </td>
+                <td class="item">
+                    <h:outputText class="text" value="项目类别：#{AllController.cataIntCnvtToString(AllController.detail.projClass)}"/>
+                </td>
+            </tr>
+            <tr class="tr">
+                <td class="item">
+                    <h:outputText class="text" value="公布时间：#{AllController.detail.applDate}"/>
+                </td>
+                <td class="item">
+                    <h:outputText class="text" value="所在省份：#{AllController.provIntCnvtToString(AllController.detail.projProvince)}"/>
+                </td>
+            </tr>
+             <tr class="tr">
+                <td class="item">
+                    <h:outputText class="text" value="申请人姓名：#{AllController.detail.applicantName}"/>
+                </td>
+                <td class="item">
+                    <h:outputText class="text" value="申请人邮箱：#{AllController.detail.applicantMail}"/>
+                </td>
+            </tr>
+             <tr class="tr">
+                <td class="item">
+                    <h:outputText class="text" value="申报地区或单位：#{AllController.detail.projAddr}"/>
+                </td>  
+            </tr>
+        </table>
+        <div class="p">
+            
+            <h:outputText class="desc" value="申报地区或单位：#{AllController.detail.projAddr}"/>
+           <br/><br/>
+           <h:outputText class="desc" value="#{AllController.detail.projDepict}">
+            </h:outputText>
+                
+        </div>
+        <div class="x-wrap">
+            <div class="t_line"><div class="bd"></div></div>
+        </div>
+        
+        <div class="float">
+            <div class="float_icon">
+            <div class="float_back">
+                 <h:form>
+                     <p:graphicImage id="heart" class="like_icon" value="./resources/images/sxy/#{AllController.guardState(2)}"/>
+                     <p:commandLink value="#{AllController.guardState(1)}"  class="like_word" action="#{AllController.changeState()}" update="@this heart" />
+                 </h:form>
+            </div>
+            </div>       
+        </div>
+       
+
+        <div class="inherit_xx2">
+            <div class="x-wrap">
+                <div class="tit">
+                    <div class="h24">捐款排行榜</div>				
+                </div>
+                <div class="x-tables">
+                    <table>
+                        <tr>
+                            <th width="137">排行</th>
+                            <th width="395">用户名</th>
+                            <th width="698">金额</th>
+                         </tr>
+                        <tr><!-- getDonate(项目id,第几名)-->
+                                <td><div class="name">排行</div>1</td>
+                                <td><div class="name">用户名</div><h:outputText value="#{AllController.getDonate(1).userName}"/></td>
+                                <td><div class="name">金额</div><h:outputText value="#{AllController.getDonate(1).funding}"/></td>
+
+                        </tr> <tr>
+                                <td><div class="name">排行</div>2</td>
+                                <td><div class="name">用户名</div><h:outputText value="#{AllController.getDonate(2).userName}"/></td>
+                                <td><div class="name">金额</div><h:outputText value="#{AllController.getDonate(2).funding}"/></td>
+                        </tr><tr>
+                                <td><div class="name">排行</div>3</td>
+                                <td><div class="name">用户名</div><h:outputText value="#{AllController.getDonate(3).userName}"/></td>
+                                <td><div class="name">金额</div><h:outputText value="#{AllController.getDonate(3).funding}"/></td>
+                        </tr><tr>
+                                <td><div class="name">排行</div>4</td>
+                                <td><div class="name">用户名</div><h:outputText value="#{AllController.getDonate(4).userName}"/></td>
+                                <td><div class="name">金额</div><h:outputText value="#{AllController.getDonate(4).funding}"/></td>
+                        </tr> <tr>
+                                <td><div class="name">排行</div>5</td>
+                                <td><div class="name">用户名</div><h:outputText value="#{AllController.getDonate(5).userName}"/></td>
+                                <td><div class="name">金额</div><h:outputText value="#{AllController.getDonate(5).funding}"/></td>
+
+                        </tr>
+                    </table>
+                 </div>				
+             </div>
+        </div>
+        
+       <div class="donate" href="javascript:void(0)" onclick="show('light')">捐助项目</div>
+       <div id="light" class="white_content">
+            <div class="close"><a href="javascript:void(0)" onclick="hide('light')"> 关闭</a></div>
+            <img src="./resources/images/sxy/pay.png"/>
+            <h:form style="margin-left: 140px">
+                捐款数额
+                <h:inputText value="#{AllController.donation}"/>
+                <h:commandButton action="#{AllController.Donate()}" value="确定"/>
+            </h:form>
+        </div>
+        <div id="fade" class="black_overlay"></div>
+        <div style="margin-top: 20px">
+            <iframe    MARGINWIDTH="0" MARGINHEIGHT="0" HSPACE="0" VSPACE="0" FRAMEBORDER="0" SCROLLING="no" src="foot.xhtml" width="100%"  height="auto"/>
+        </div>
+        <img src="./resources/images/sxy/foot.png"/>
+    </body>
+  
+</html>

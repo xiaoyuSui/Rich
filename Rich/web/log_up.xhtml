@@ -14,12 +14,12 @@ and open the template in the editor.
         <title>注册</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <!--h:outputStylesheet library="css" name="log.css" /-->
-        <link rel="stylesheet" type="text/css" href="resources/css/log_in.css"/>
+        <link rel="stylesheet" type="text/css" href="resources/css/log_up.css"/>
           
     </h:head>
-    <h:body  style=" background-image: url(resources/images/back3.png);">
+    <h:body  style=" background-image: url(resources/images/back3.png);background-size: 100%">
         <div id="wrapper">
-            <nav class="switch_nav" >
+            <nav class="switch_nav" style="margin-left:0px ">
                 <a href="javascript:;" id="switch_signup" class="switch_btn on">注册</a>
                 <a href="log_in.xhtml" id="switch_login" class="switch_btn ">登陆</a>
                 <div class="switch_bottom" id="switch_bottom"></div>
@@ -27,18 +27,18 @@ and open the template in the editor.
         </div>
         <h:form>
             <p:panel id="panel" class="logup-panel" style="text-align:center;background-color: transparent;border: 0px;margin-top: 0px">
-            <h:panelGrid columns="1" style="text-align: center;">
+            <h:panelGrid columns="1"  class="group_input" style="text-align: center;">
                 <p:inputText id="userTel" value="#{AllController.userTel}" required="true" maxlength="20" placeholder="输入手机号" requiredMessage="请输入手机号"
-                            style="margin-left: 640px;background: transparent;text-align: center;margin-top:5px"/>  
+                            style="margin-left: 790px;background: transparent;text-align: center"/>  
                 <p:inputText id="userName" value="#{AllController.userName}" required="true" maxlength="20" placeholder="输入用户名" requiredMessage="请输入用户名"
-                             style="margin-left: 640px;background: transparent;text-align: center;margin-top:5px"/>
+                             style="margin-left: 790px;background: transparent;text-align: center;margin-top:10px"/>
                 <p:password id="userPsw" value="#{AllController.userPsw}" required="true" maxlength="20" placeholder="输入密码" requiredMessage="请输入密码"
-                            style="margin-left: 640px;background: transparent;text-align: center;margin-top: 5px"/>
+                            style="margin-left: 790px;background: transparent;text-align: center;margin-top: 10px"/>
             </h:panelGrid>
-                <p:commandButton value="注册" update="panel" class="logup-btn" action="#{AllController.logUp}" 
-                                 style="margin-left:0px;margin-top: 20px;background-image: url(resources/images/button2.jpg);"/>
+                <p:commandLink value="注册" update="panel" class="logup-btn" action="#{AllController.logUp}" 
+                                 style="margin-left:30px;margin-top: 20px"/>
                 <p:messages id="message" class="logup-message" showDetail="false" showIcon="false" style="background-color: transparent;border: 0px;margin-left: auto;
-                            margin-right: auto;width:10px"/>
+                            margin-right: auto;width:300px;background:transparent"/>
             
             </p:panel>
         </h:form>

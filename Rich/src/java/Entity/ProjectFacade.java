@@ -37,6 +37,11 @@ public class ProjectFacade extends AbstractFacade<Project> {
         return query.getResultList();
     }
     
+    public List<Project> findByProjID(int projID){
+        Query query = em.createNamedQuery("Project.findByprojID").setParameter("proj_id", projID);
+        return query.getResultList();
+    }
+    
     public int countByUserTel(String tel){
         Query query = em.createNamedQuery("Project.countByUserTel").setParameter("userTel", tel);
         return ((Long)query.getSingleResult()).intValue();
@@ -47,6 +52,18 @@ public class ProjectFacade extends AbstractFacade<Project> {
         return (Project) query.getSingleResult();
     }
     
+    public List<Project> findByProjCondition(int condition){
+        Query query=em.createNamedQuery("Project.findByProjCondition").setParameter("projCondition", condition);
+        return query.getResultList();
+    }
     
+     public void projectChange(Project project,int condition,int pjID){//应该是string
+         String hql="UPDATE Project p SET p.projCondition= :condition WHERE p.projId= :pjID";
+         em.createQuery(hql)
+                 .setParameter("pjID", pjID)
+                 .setParameter("condition", condition)
+                 .executeUpdate();
+         System.out.println("执行sql语句");
+     }
 
 }
